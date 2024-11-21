@@ -33,14 +33,14 @@ def filter_and_save_by_cluster(path, cluster_thresholds, plot=False):
     
     # Concatenate filtered data and save
     filtered_dataframe = pd.concat(filtered_dfs)
-    filtered_dataframe.to_csv('./data/final_cleaned.csv', index=False)
-    print("Filtered dataframe has been saved to './data/final_cleaned.csv'")
+    filtered_dataframe.to_csv('../data/final_cleaned.csv', index=False)
+    print("Filtered dataframe has been saved to '../data/final_cleaned.csv'")
     
     # Concatenate outliers and save
     outliers_dataframe = pd.concat(outlier_dfs)
     # outliers_dataframe.drop(['cluster', 'distance'], axis=1, inplace=True)
-    outliers_dataframe.to_csv('./data/outliers_by_distance.csv', index=False)
-    print("Outliers have been saved to './data/outliers.csv'")
+    outliers_dataframe.to_csv('../data/outliers_by_distance.csv', index=False)
+    print("Outliers have been saved to '../data/outliers.csv'")
     
     # Plot the data if requested
     if plot:

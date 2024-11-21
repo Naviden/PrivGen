@@ -12,7 +12,7 @@ def plot_data_points():
         - outliers_by_DBSCAN.csv: Red balls for DBSCAN outliers.
         - outliers_by_distance.csv: Red crosses for distance-based outliers.
     
-    All files must be in the './data/' folder.
+    All files must be in the '../data/' folder.
     """
     def preprocess_data(file_path):
         """
@@ -41,9 +41,9 @@ def plot_data_points():
         return df
     
     # Preprocess the data from each file
-    final_cleaned = preprocess_data('./data/final_cleaned.csv')
-    outliers_dbscan = preprocess_data('./data/outliers_by_DBSCAN.csv')
-    outliers_distance = preprocess_data('./data/outliers_by_distance.csv')
+    final_cleaned = preprocess_data('../data/final_cleaned.csv')
+    outliers_dbscan = preprocess_data('../data/outliers_by_DBSCAN.csv')
+    outliers_distance = preprocess_data('../data/outliers_by_distance.csv')
     
     # Create the scatter plot
     plt.figure(figsize=(10, 7))

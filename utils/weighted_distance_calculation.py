@@ -56,7 +56,7 @@ def cluster_and_analyze(data):
         result_frames.append(cluster_data_with_distances)
     
     final_df = pd.concat(result_frames).reset_index(drop=True)
-    final_df.to_csv('./data/weighted_distances.csv', index=False)
+    final_df.to_csv('../data/weighted_distances.csv', index=False)
     
     return final_df
 

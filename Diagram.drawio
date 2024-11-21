@@ -1,64 +1,58 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17" pages="2">
   <diagram id="NJ2GkDeIvMmxF4FtxnCW" name="Overall">
-    <mxGraphModel dx="984" dy="747" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="800" math="0" shadow="0">
+    <mxGraphModel dx="1093" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="700" pageHeight="100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="310" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-5" value="Outlier Cleaning" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="180" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-7" target="9t--ioI_1k4wbhmBGzLu-5">
+        <mxCell id="r5OcsU7PCxc4L-6VOO87-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-5" target="9t--ioI_1k4wbhmBGzLu-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-7" value="Raw Data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
-          <mxGeometry x="420" y="30" width="60" height="80" as="geometry" />
+        <mxCell id="9t--ioI_1k4wbhmBGzLu-5" value="Outlier Cleaning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="20" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-13" value="Privacy Evaluaiton" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="440" width="120" height="60" as="geometry" />
+        <mxCell id="9t--ioI_1k4wbhmBGzLu-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-7" target="9t--ioI_1k4wbhmBGzLu-5">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-19">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="440" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="9t--ioI_1k4wbhmBGzLu-7" value="Raw Data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="10" width="60" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-19" value="Synthetic Data Generation" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="310" width="120" height="60" as="geometry" />
+        <mxCell id="9t--ioI_1k4wbhmBGzLu-13" value="Privacy Evaluaiton" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-25" value="Clean Data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
-          <mxGeometry x="420" y="550" width="60" height="80" as="geometry" />
+        <mxCell id="r5OcsU7PCxc4L-6VOO87-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-19" target="9t--ioI_1k4wbhmBGzLu-13">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="9t--ioI_1k4wbhmBGzLu-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-13" target="9t--ioI_1k4wbhmBGzLu-25">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="630" as="sourcePoint" />
-          </mxGeometry>
+        <mxCell id="9t--ioI_1k4wbhmBGzLu-19" value="Synthetic Data Generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9t--ioI_1k4wbhmBGzLu-25" value="Clean Data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="10" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r5OcsU7PCxc4L-6VOO87-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="9t--ioI_1k4wbhmBGzLu-13" target="9t--ioI_1k4wbhmBGzLu-25">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram name="Outlier Cleaning" id="exgVmfQo6Rq7F1kcHZIg">
-    <mxGraphModel dx="984" dy="747" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="800" math="0" shadow="0">
+    <mxGraphModel dx="1406" dy="1067" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="750" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="8Ty9u0OfBwFfZ0FzzogC-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffb86b;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="150" y="540" width="750" height="120" as="geometry" />
+          <mxGeometry x="30" y="520" width="750" height="120" as="geometry" />
         </mxCell>
         <mxCell id="SegDKhn3ESl1ZfdKmo15-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffc98f;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="150" y="410" width="750" height="120" as="geometry" />
+          <mxGeometry x="30" y="390" width="750" height="120" as="geometry" />
         </mxCell>
         <mxCell id="SegDKhn3ESl1ZfdKmo15-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="150" y="280" width="750" height="120" as="geometry" />
+          <mxGeometry x="30" y="260" width="750" height="120" as="geometry" />
         </mxCell>
         <mxCell id="SegDKhn3ESl1ZfdKmo15-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="150" y="150" width="750" height="120" as="geometry" />
+          <mxGeometry x="30" y="130" width="750" height="120" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-1" value="Expert" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="180" width="30" height="60" as="geometry" />
+          <mxGeometry x="60" y="160" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-2" target="MUi7LtVfqCFP66UB170B-1">
           <mxGeometry relative="1" as="geometry" />
@@ -70,20 +64,20 @@
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-2">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="310" as="targetPoint" />
+            <mxPoint x="330" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-2" value="Param Finder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="180" width="120" height="60" as="geometry" />
+          <mxGeometry x="270" y="160" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-3" target="MUi7LtVfqCFP66UB170B-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-3" value="Raw Data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="420" y="50" width="60" height="80" as="geometry" />
+          <mxGeometry x="300" y="30" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-23" value="Expert" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="440" width="30" height="60" as="geometry" />
+          <mxGeometry x="60" y="420" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-25" target="MUi7LtVfqCFP66UB170B-23">
           <mxGeometry relative="1" as="geometry" />
@@ -102,10 +96,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-25" value="Calculate Weighted Distances" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="440" width="120" height="60" as="geometry" />
+          <mxGeometry x="270" y="420" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-26" value="Expert" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="310" width="30" height="60" as="geometry" />
+          <mxGeometry x="60" y="290" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-28" target="MUi7LtVfqCFP66UB170B-26">
           <mxGeometry relative="1" as="geometry" />
@@ -117,7 +111,7 @@
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-28">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="440" as="targetPoint" />
+            <mxPoint x="330" y="420" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-35" value="Cleans Outliers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MUi7LtVfqCFP66UB170B-29">
@@ -126,7 +120,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-28" value="DBSCAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="310" width="120" height="60" as="geometry" />
+          <mxGeometry x="270" y="290" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-2" target="MUi7LtVfqCFP66UB170B-26">
           <mxGeometry relative="1" as="geometry" />
@@ -137,11 +131,11 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-37" value="Expert" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="570" width="30" height="60" as="geometry" />
+          <mxGeometry x="60" y="550" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-41">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="600" as="targetPoint" />
+            <mxPoint x="90" y="580" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-40" value="Thresholds" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MUi7LtVfqCFP66UB170B-39">
@@ -150,30 +144,30 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-41" value="Cleaning Final Outliers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="570" width="120" height="60" as="geometry" />
+          <mxGeometry x="270" y="550" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MUi7LtVfqCFP66UB170B-44" value="Clean Data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="420" y="680" width="60" height="80" as="geometry" />
+          <mxGeometry x="300" y="660" width="60" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="MUi7LtVfqCFP66UB170B-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-41" target="MUi7LtVfqCFP66UB170B-44">
+        <mxCell id="MUi7LtVfqCFP66UB170B-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-41" target="MUi7LtVfqCFP66UB170B-44">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="SegDKhn3ESl1ZfdKmo15-5" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Hyper-Parameter Optimization&lt;/font&gt;&lt;/h1&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14);&quot; class=&quot;p1&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;The expert provides her estimation of the proportion of outlier records. Param Finder applies a wide range of hyperparameters and ranks the results based on their similarity to the expert’s expectations.&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="540" y="150" width="380" height="110" as="geometry" />
+          <mxGeometry x="420" y="130" width="380" height="110" as="geometry" />
         </mxCell>
         <mxCell id="SegDKhn3ESl1ZfdKmo15-6" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;Outlier Detection by Clustering&lt;/span&gt;&lt;/h1&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14);&quot; class=&quot;p1&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;The expert selects a set of parameters, which are then used by the DBSCAN algorithm to identify and remove outliers.&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="540" y="280" width="360" height="110" as="geometry" />
+          <mxGeometry x="420" y="260" width="360" height="110" as="geometry" />
         </mxCell>
         <mxCell id="SegDKhn3ESl1ZfdKmo15-7" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;Calculation of Weighted Distances&lt;/span&gt;&lt;/h1&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14);&quot; class=&quot;p1&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Using the feature weights provided by the expert, the weighted Euclidean distance of each record from its corresponding cluster’s geometric median is calculated.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="540" y="415" width="370" height="110" as="geometry" />
+          <mxGeometry x="420" y="395" width="370" height="110" as="geometry" />
         </mxCell>
         <mxCell id="8Ty9u0OfBwFfZ0FzzogC-1" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;Outlier Detection by Distance&lt;/span&gt;&lt;/h1&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14);&quot; class=&quot;p1&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;For each cluster, the expert sets a cutting threshold. This threshold is then used to eliminate records that exceed it&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="540" y="545" width="350" height="110" as="geometry" />
+          <mxGeometry x="420" y="525" width="350" height="110" as="geometry" />
         </mxCell>
         <mxCell id="8Ty9u0OfBwFfZ0FzzogC-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="MUi7LtVfqCFP66UB170B-25" target="MUi7LtVfqCFP66UB170B-37">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="400" y="250" as="sourcePoint" />
-            <mxPoint x="220" y="340" as="targetPoint" />
+            <mxPoint x="280" y="230" as="sourcePoint" />
+            <mxPoint x="100" y="320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="8Ty9u0OfBwFfZ0FzzogC-4" value="Distributions" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="8Ty9u0OfBwFfZ0FzzogC-3">

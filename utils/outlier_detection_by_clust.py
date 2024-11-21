@@ -44,12 +44,12 @@ def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf
     clean_data = data[data['cluster'] != -1].reset_index(drop=True)
     
     # Save non-outlier data
-    clean_data.to_csv('./data/outlier_cleaned_by_DBSCAN.csv', index=False)
+    clean_data.to_csv('../data/outlier_cleaned_by_DBSCAN.csv', index=False)
     
     # Save outliers (labels == -1) ignoring the 'cluster' column
     outliers = data[data['cluster'] == -1].drop(columns=['cluster']).reset_index(drop=True)
     # outliers.drop(['cluster'], axis=1, inplace=True)
-    outliers.to_csv('./data/outliers_by_DBSCAN.csv', index=False)
+    outliers.to_csv('../data/outliers_by_DBSCAN.csv', index=False)
     
     # Print statistics
     print(f"Percentage of outliers removed: {sum(labels == -1) / len(data) * 100:.2f}%")

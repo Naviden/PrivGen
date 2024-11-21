@@ -1,34 +1,64 @@
+from sklearn.preprocessing import OrdinalEncoder
 import pandas as pd
-import numpy as np
-from category_encoders.hashing import HashingEncoder
+import pickle
 
-def hash_encode_categorical(data, n_components: int = 10) -> pd.DataFrame:
+
+def ordinal_encode_categorical(data, pickle_path: str = 'mappings.pkl'):
     """
-    Encodes categorical columns in the given DataFrame or NumPy array using HashingEncoder.
-    
+    Encodes categorical columns using OrdinalEncoder and saves mappings for reversibility.
+
     Parameters:
-    data (pd.DataFrame or np.ndarray): The input data.
-    n_components (int): The number of output components for the hashing encoder (default is 10).
+    data (pd.DataFrame): Input DataFrame with categorical columns to encode.
+    pickle_path (str): File path to save mappings and column mappings (default is 'mappings.pkl').
 
     Returns:
-    pd.DataFrame: A DataFrame with all numerical values, suitable for DBSCAN.
+    pd.DataFrame: Encoded DataFrame with numerical values replacing categorical columns.
     """
-    # If the input is a NumPy array, convert it to a DataFrame
-    if isinstance(data, np.ndarray):
-        data = pd.DataFrame(data)
-    elif not isinstance(data, pd.DataFrame):
-        raise ValueError("Input data must be a pandas DataFrame or a NumPy array.")
+    print('hi!')
+    if not isinstance(data, pd.DataFrame):
+        raise ValueError("Input data must be a pandas DataFrame.")
     
-    # Identify categorical columns
     categorical_columns = data.select_dtypes(include=['object', 'category']).columns
-    encoder = HashingEncoder(cols=categorical_columns, n_components=n_components)
+    mappings = {}
+    encoder = OrdinalEncoder()
     
-    # Transform and return the encoded DataFrame
-    df_encoded = encoder.fit_transform(data)
+    # Apply encoding only to categorical columns
+    encoded_data = data.copy()
+    encoded_data[categorical_columns] = encoder.fit_transform(data[categorical_columns])
     
-    return df_encoded.astype(float)
+    # Store mappings for each column
+    for i, col in enumerate(categorical_columns):
+        mappings[col] = {
+            'categories': encoder.categories_[i]
+        }
+    
+    # Save mappings to a pickle file
+    with open(pickle_path, 'wb') as f:
+        pickle.dump(mappings, f)
+    encoded_data.to_csv('../data/encoded_data.csv', index=False)
+    print('here')
+    return encoded_data
 
-# Example usage:
-# data_array = np.array([['A', 1], ['B', 2], ['C', 3]])
-# encoded_df = hash_encode_categorical(data_array)
-# print(encoded_df)
+def ordinal_decode_categorical(data, pickle_path: str = 'mappings.pkl'):
+    """
+    Decodes a DataFrame encoded with `ordinal_encode_categorical` using mappings from a pickle file.
+
+    Parameters:
+    data (pd.DataFrame): Encoded DataFrame with numerical values.
+    pickle_path (str): File path to load mappings (default is 'mappings.pkl').
+
+    Returns:
+    pd.DataFrame: Decoded DataFrame with categorical columns restored.
+    """
+    # Load mappings from the pickle file
+    with open(pickle_path, 'rb') as f:
+        mappings = pickle.load(f)
+    
+    decoded_data = data.copy()
+    
+    # Decode each categorical column
+    for col, map_dict in mappings.items():
+        categories = map_dict['categories']
+        decoded_data[col] = decoded_data[col].map(lambda x: categories[int(x)] if not pd.isna(x) else None)
+    
+    return decoded_data
