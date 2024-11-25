@@ -54,12 +54,14 @@ def find_top_records(dataframe, percentage_outliers, num_clusters=None, top_n=5)
 
 
 
-def hyper_param_search(data, percentage_outliers, num_clusters=None, top_n=5, plot=False,
+def hyper_param_search(data, percentage_outliers, dataset_name, num_clusters=None, top_n=5, plot=False,
                        eps_values=np.linspace(0.1, 1.0, 10), min_samples_values=range(3, 10),
                        metrics=['euclidean', 'manhattan', 'mahalanobis'], 
                        algorithms=['auto', 'ball_tree', 'kd_tree', 'brute'], 
                        leaf_sizes=range(10, 60, 10), 
-                       p_values=[None, 1, 2]):
+                       p_values=[None, 1, 2],
+                       
+                       save=True):
     """
     Runs DBSCAN clustering with various parameters and optionally plots the results.
 
@@ -75,6 +77,7 @@ def hyper_param_search(data, percentage_outliers, num_clusters=None, top_n=5, pl
         algorithms (list): List of algorithms for DBSCAN. Defaults to ['auto', 'ball_tree', 'kd_tree', 'brute'].
         leaf_sizes (iterable): Range of leaf_size for DBSCAN. Defaults to range(10, 110, 10).
         p_values (list): List of Minkowski metric powers. Defaults to [None, 1, 2].
+        save: if True, the grid search results are saved
 
     Returns:
         pd.DataFrame: Dataframe containing the top N clustering results.
@@ -142,6 +145,8 @@ def hyper_param_search(data, percentage_outliers, num_clusters=None, top_n=5, pl
         plt.savefig('clusters.pdf', dpi=600)
     
     all_results = pd.DataFrame(results)
+    if save:
+        all_results.to_csv(f'../data/{dataset_name}_grid_search_results.csv', index=False)
     top_results = find_top_records(all_results, percentage_outliers=percentage_outliers, num_clusters=num_clusters, top_n=top_n)
     
     return top_results

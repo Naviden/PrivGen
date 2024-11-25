@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
-def plot_data_points():
+def plot_data_points(dataset_name):
     """
     Loads three CSV files, reduces dimensions to 2 if necessary, plots all points with specific markers 
     and colors for each file, and displays a scatter plot.
@@ -41,9 +41,9 @@ def plot_data_points():
         return df
     
     # Preprocess the data from each file
-    final_cleaned = preprocess_data('../data/final_cleaned.csv')
-    outliers_dbscan = preprocess_data('../data/outliers_by_DBSCAN.csv')
-    outliers_distance = preprocess_data('../data/outliers_by_distance.csv')
+    final_cleaned = preprocess_data(f'../data/{dataset_name}_5_final_cleaned.csv')
+    outliers_dbscan = preprocess_data(f'../data/{dataset_name}_3_outliers_by_DBSCAN.csv')
+    outliers_distance = preprocess_data(f'../data/{dataset_name}_6_outliers_by_distance.csv')
     
     # Create the scatter plot
     plt.figure(figsize=(10, 7))

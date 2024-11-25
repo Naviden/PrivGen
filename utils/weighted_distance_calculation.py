@@ -25,7 +25,7 @@ def geometric_median(X, eps=1e-5):
             return y1
         y = y1
 
-def cluster_and_analyze(data):
+def cluster_and_analyze(data, dataset_name):
     """
     Adds a 'distance' column to the data, representing the distance of each point
     from its cluster's geometric median.
@@ -56,14 +56,14 @@ def cluster_and_analyze(data):
         result_frames.append(cluster_data_with_distances)
     
     final_df = pd.concat(result_frames).reset_index(drop=True)
-    final_df.to_csv('../data/weighted_distances.csv', index=False)
+    final_df.to_csv(f'../data/{dataset_name}_4_weighted_distances.csv', index=False)
     
     return final_df
 
-def plot_density_histograms(file_path):
+def calculate_plot_distance(dataset_name):
 
-    data = pd.read_csv(file_path)
-    data = cluster_and_analyze(data)
+    data = pd.read_csv(f'../data/{dataset_name}_2_cleaned_by_DBSCAN.csv')
+    data = cluster_and_analyze(data, dataset_name)
 
     for cluster_label in data['cluster'].unique():
         cluster_distances = data[data['cluster'] == cluster_label]['distance']

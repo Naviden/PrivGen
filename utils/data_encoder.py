@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 
-def ordinal_encode_categorical(data, pickle_path: str = 'mappings.pkl'):
+def ordinal_encode_categorical(data, dataset_name, pickle_path: str = 'mappings.pkl', save=True):
     """
     Encodes categorical columns using OrdinalEncoder and saves mappings for reversibility.
 
@@ -14,7 +14,6 @@ def ordinal_encode_categorical(data, pickle_path: str = 'mappings.pkl'):
     Returns:
     pd.DataFrame: Encoded DataFrame with numerical values replacing categorical columns.
     """
-    print('hi!')
     if not isinstance(data, pd.DataFrame):
         raise ValueError("Input data must be a pandas DataFrame.")
     
@@ -35,11 +34,11 @@ def ordinal_encode_categorical(data, pickle_path: str = 'mappings.pkl'):
     # Save mappings to a pickle file
     with open(pickle_path, 'wb') as f:
         pickle.dump(mappings, f)
-    encoded_data.to_csv('../data/encoded_data.csv', index=False)
-    print('here')
+    if save:
+        encoded_data.to_csv(f'../data/{dataset_name}_1_encoded_data.csv', index=False)
     return encoded_data
 
-def ordinal_decode_categorical(data, pickle_path: str = 'mappings.pkl'):
+def ordinal_decode_categorical(dataset_name, pickle_path: str = 'mappings.pkl'):
     """
     Decodes a DataFrame encoded with `ordinal_encode_categorical` using mappings from a pickle file.
 
@@ -54,11 +53,17 @@ def ordinal_decode_categorical(data, pickle_path: str = 'mappings.pkl'):
     with open(pickle_path, 'rb') as f:
         mappings = pickle.load(f)
     
+
+    data = pd.read_csv(f'../data/{dataset_name}_5_final_cleaned.csv')
+    data.drop(['cluster', 'distance'], axis=1, inplace=True)
+    data.to_csv(f'../data/{dataset_name}_7_before_decoding.csv')
+
     decoded_data = data.copy()
     
     # Decode each categorical column
     for col, map_dict in mappings.items():
         categories = map_dict['categories']
         decoded_data[col] = decoded_data[col].map(lambda x: categories[int(x)] if not pd.isna(x) else None)
+    decoded_data.to_csv(f'../data/{dataset_name}_8_decoded_data.csv', index=False)
     
     return decoded_data

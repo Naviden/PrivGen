@@ -1,0 +1,10 @@
+data_name: salary, synthesizer: dummy_sampler, execution_time: 0.515875 seconds, memory_diff_MB: 4.16
+data_name: salary, synthesizer: decaf, execution_time: 600.023597 seconds, memory_diff_MB: -80.29
+data_name: salary, synthesizer: marginal_distributions, execution_time: 0.477126 seconds, memory_diff_MB: 0.51
+data_name: salary, synthesizer: ctgan, execution_time: 237.126395 seconds, memory_diff_MB: -5.18
+data_name: salary, synthesizer: nflow, execution_time: 123.964064 seconds, memory_diff_MB: 23.25
+data_name: salary, synthesizer: tvae, execution_time: 95.958817 seconds, memory_diff_MB: 3.50
+data_name: salary, synthesizer: rtvae, execution_time: 171.474643 seconds, memory_diff_MB: -9.49
+data_name: salary, synthesizer: bayesian_network, execution_time: 43.998166 seconds, memory_diff_MB: 6.04
+data_name: salary, synthesizer: arf, execution_time: 54.041225 seconds, memory_diff_MB: 21.29
+data_name: salary, synthesizer: adsgan, execution_time: 213.262040 seconds, memory_diff_MB: -40.31

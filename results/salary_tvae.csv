@@ -1,0 +1,40 @@
+Metric,Better Results,Magnitude,orig,privgen
+sanity.data_mismatch.score,results 2,marginally,0.0,0.0
+sanity.common_rows_proportion.score,results 2,marginally,0.0,0.0
+sanity.nearest_syn_neighbor_distance.mean,results 1,marginally,0.01665669024104502,0.03084331761680158
+sanity.close_values_probability.score,results 1,marginally,0.9772727272727273,0.9506769825918762
+sanity.distant_values_probability.score,results 1,marginally,0.005454545454545455,0.012572533849129593
+stats.jensenshannon_dist.marginal,results 1,marginally,0.01006758680047825,0.011847634344482423
+stats.chi_squared_test.marginal,results 1,marginally,0.7497385285376211,0.7485281500313995
+stats.inv_kl_divergence.marginal,results 1,by far,0.8653932165432057,0.768757332243069
+stats.ks_test.marginal,results 2,marginally,0.9211363636363636,0.9211798839458414
+stats.max_mean_discrepancy.joint,results 1,marginally,0.0018181578322338536,0.0019340241314177728
+stats.wasserstein_dist.joint,results 1,marginally,0.006353242585209158,0.009198004465578958
+stats.prdc.precision,results 2,marginally,1.0,1.0
+stats.prdc.recall,results 1,by far,0.9745454545454545,0.8839458413926499
+stats.prdc.density,results 1,marginally,1.0134545454545456,0.9990328820116056
+stats.prdc.coverage,results 1,marginally,0.8336363636363636,0.7940038684719536
+stats.alpha_precision.delta_precision_alpha_OC,results 2,marginally,0.9020208986415883,0.9065474999444185
+stats.alpha_precision.delta_coverage_beta_OC,results 2,marginally,0.37375757575757573,0.37472598323662143
+stats.alpha_precision.authenticity_OC,results 2,marginally,0.5827272727272728,0.6315280464216635
+stats.alpha_precision.delta_precision_alpha_naive,results 1,by far,0.9674984326018808,0.8797549967762733
+stats.alpha_precision.delta_coverage_beta_naive,results 2,marginally,0.5929090909090909,0.6298517085751127
+stats.alpha_precision.authenticity_naive,results 2,marginally,0.41454545454545455,0.43133462282398455
+performance.linear_model.syn_id,results 1,marginally,0.030602198298356347,-0.009980537098107348
+performance.linear_model.syn_ood,results 2,marginally,-0.053792850658737956,-0.03474887577414587
+performance.mlp.syn_id,results 2,by far,-3.91977326075236,-3.676225026448568
+performance.mlp.syn_ood,results 1,by far,-3.0908894538879395,-3.785820484161377
+performance.xgb.syn_id,results 2,by far,-0.295083483060201,-0.08107670148213704
+performance.xgb.syn_ood,results 2,marginally,-0.14367055892944336,-0.1367577314376831
+performance.feat_rank_distance.corr,results 2,marginally,1.0,1.0
+performance.feat_rank_distance.pvalue,results 2,marginally,0.3333333333333333,0.3333333333333333
+detection.detection_xgb.mean,results 1,by far,0.7900998496691988,0.8472772192995738
+detection.detection_mlp.mean,results 2,marginally,0.5,0.5
+detection.detection_gmm.mean,results 1,by far,0.47632938004478803,0.5340453686200378
+detection.detection_linear.mean,results 2,marginally,0.5447871877440226,0.5198707277638565
+privacy.delta-presence.score,results 1,by far,13.999999860000003,8.3999999916
+privacy.k-anonymization.syn,results 2,by far,1.00000001,12.00000001
+privacy.k-map.score,results 2,by far,1.0,10.0
+privacy.distinct l-diversity.syn,results 2,by far,1.00000001,12.00000001
+privacy.identifiability_score.score,results 2,marginally,0.4445454545454545,0.42166344294003866
+privacy.identifiability_score.score_OC,results 2,marginally,0.3845454545454545,0.3413926499032882

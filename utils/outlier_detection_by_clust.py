@@ -5,7 +5,7 @@ from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
-def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf_size, plot=False, **kwargs):
+def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf_size, dataset_name,  plot=False, **kwargs):
     """
     Creates a DBSCAN model with user-specified parameters, removes detected outliers,
     and returns the cleaned data with a new column 'cluster' for cluster labels.
@@ -43,13 +43,7 @@ def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf
     # Identify the non-outlier data (labels != -1)
     clean_data = data[data['cluster'] != -1].reset_index(drop=True)
     
-    # Save non-outlier data
-    clean_data.to_csv('../data/outlier_cleaned_by_DBSCAN.csv', index=False)
     
-    # Save outliers (labels == -1) ignoring the 'cluster' column
-    outliers = data[data['cluster'] == -1].drop(columns=['cluster']).reset_index(drop=True)
-    # outliers.drop(['cluster'], axis=1, inplace=True)
-    outliers.to_csv('../data/outliers_by_DBSCAN.csv', index=False)
     
     # Print statistics
     print(f"Percentage of outliers removed: {sum(labels == -1) / len(data) * 100:.2f}%")
@@ -76,6 +70,14 @@ def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf
         plt.ylabel('Component 2' if len(features) > 2 else features[1])
         plt.legend()
         plt.show()
+    
+    # Save outliers (labels == -1) ignoring the 'cluster' column
+    outliers = data[data['cluster'] == -1].drop(columns=['cluster']).reset_index(drop=True)
+    # outliers.drop(['cluster'], axis=1, inplace=True)
+    outliers.to_csv(f'../data/{dataset_name}_3_outliers_by_DBSCAN.csv', index=False)
+
+    # Save non-outlier data
+    clean_data.to_csv(f'../data/{dataset_name}_2_cleaned_by_DBSCAN.csv', index=False)
     
     return clean_data
 

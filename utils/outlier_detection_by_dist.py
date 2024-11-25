@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
-def filter_and_save_by_cluster(path, cluster_thresholds, plot=False):
+def filter_and_save_by_distance(dataset_name, cluster_thresholds, plot=False):
     """
     Filters a dataframe based on cluster thresholds, saves the filtered dataframe to one CSV,
     and saves the outliers (excluding cluster and distance columns) to another CSV. Optionally plots the data.
@@ -14,7 +14,7 @@ def filter_and_save_by_cluster(path, cluster_thresholds, plot=False):
     plot (bool): If True, plots the data points (blue for non-outliers, red for outliers).
     """
     # Load the dataframe
-    dataframe = pd.read_csv(path)
+    dataframe = pd.read_csv(f'../data/{dataset_name}_4_weighted_distances.csv')
     
     # Ensure 'cluster' column is string type
     dataframe['cluster'] = dataframe['cluster'].astype(str)
@@ -33,14 +33,12 @@ def filter_and_save_by_cluster(path, cluster_thresholds, plot=False):
     
     # Concatenate filtered data and save
     filtered_dataframe = pd.concat(filtered_dfs)
-    filtered_dataframe.to_csv('../data/final_cleaned.csv', index=False)
-    print("Filtered dataframe has been saved to '../data/final_cleaned.csv'")
+    filtered_dataframe.to_csv(f'../data/{dataset_name}_5_final_cleaned.csv', index=False)
     
     # Concatenate outliers and save
     outliers_dataframe = pd.concat(outlier_dfs)
     # outliers_dataframe.drop(['cluster', 'distance'], axis=1, inplace=True)
-    outliers_dataframe.to_csv('../data/outliers_by_distance.csv', index=False)
-    print("Outliers have been saved to '../data/outliers.csv'")
+    outliers_dataframe.to_csv(f'../data/{dataset_name}_6_outliers_by_distance.csv', index=False)
     
     # Plot the data if requested
     if plot:
