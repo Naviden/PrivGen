@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 
-def ordinal_encode_categorical(data, dataset_name, pickle_path: str = 'mappings.pkl', save=True):
+def ordinal_encode_categorical(data, dataset_name, save=True):
     """
     Encodes categorical columns using OrdinalEncoder and saves mappings for reversibility.
 
@@ -14,6 +14,8 @@ def ordinal_encode_categorical(data, dataset_name, pickle_path: str = 'mappings.
     Returns:
     pd.DataFrame: Encoded DataFrame with numerical values replacing categorical columns.
     """
+
+    pickle_path = f'{dataset_name}_mappings.pkl'
     if not isinstance(data, pd.DataFrame):
         raise ValueError("Input data must be a pandas DataFrame.")
     
@@ -38,7 +40,7 @@ def ordinal_encode_categorical(data, dataset_name, pickle_path: str = 'mappings.
         encoded_data.to_csv(f'../data/{dataset_name}_1_encoded_data.csv', index=False)
     return encoded_data
 
-def ordinal_decode_categorical(dataset_name, pickle_path: str = 'mappings.pkl'):
+def ordinal_decode_categorical(dataset_name):
     """
     Decodes a DataFrame encoded with `ordinal_encode_categorical` using mappings from a pickle file.
 
@@ -49,6 +51,7 @@ def ordinal_decode_categorical(dataset_name, pickle_path: str = 'mappings.pkl'):
     Returns:
     pd.DataFrame: Decoded DataFrame with categorical columns restored.
     """
+    pickle_path = f'{dataset_name}_mappings.pkl'
     # Load mappings from the pickle file
     with open(pickle_path, 'rb') as f:
         mappings = pickle.load(f)
