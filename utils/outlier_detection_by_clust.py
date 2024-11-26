@@ -5,7 +5,7 @@ from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
-def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf_size, dataset_name,  plot=False, **kwargs):
+def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf_size, dataset_name, p ,plot=False):
     """
     Creates a DBSCAN model with user-specified parameters, removes detected outliers,
     and returns the cleaned data with a new column 'cluster' for cluster labels.
@@ -32,7 +32,7 @@ def create_dbscan_and_clean_data(data, eps, min_samples, metric, algorithm, leaf
     standardized_data = StandardScaler().fit_transform(data)
 
     # Create the DBSCAN model
-    dbscan = DBSCAN(eps=eps, min_samples=min_samples, metric=metric, algorithm=algorithm, leaf_size=leaf_size,  **kwargs)
+    dbscan = DBSCAN(eps=eps, min_samples=min_samples, metric=metric, algorithm=algorithm, leaf_size=leaf_size, p=p)
     
     # Fit the model and predict labels
     labels = dbscan.fit_predict(standardized_data)
