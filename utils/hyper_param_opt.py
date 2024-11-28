@@ -11,14 +11,15 @@ import itertools
 from tqdm import tqdm
 
 # Custom metric for Mahalanobis
+
+
 def mahalanobis_distance(X):
     cov = EmpiricalCovariance().fit(X)
     inv_cov = cov.precision_
     return lambda u, v: mahalanobis(u, v, inv_cov)
 
 
-
-def find_top_records(dataframe, percentage_outliers, num_clusters=None, top_n=5):
+def find_top_records_old(dataframe, percentage_outliers, num_clusters=None, top_n=5):
     """
     Filters the dataframe to return top N rows based on the closest percentage_outliers.
     If num_clusters is provided and exact match isn't available, it finds the closest num_clusters value.
@@ -38,29 +39,73 @@ def find_top_records(dataframe, percentage_outliers, num_clusters=None, top_n=5)
             filtered = dataframe[dataframe['num_clusters'] == num_clusters]
         else:
             # Find the closest num_clusters value
-            closest_cluster = dataframe['num_clusters'].sub(num_clusters).abs().idxmin()
+            closest_cluster = dataframe['num_clusters'].sub(
+                num_clusters).abs().idxmin()
             closest_value = dataframe.loc[closest_cluster, 'num_clusters']
             filtered = dataframe[dataframe['num_clusters'] == closest_value]
     else:
         filtered = dataframe
-    
+
     # Calculate the absolute difference in 'percentage_outliers'
-    filtered['outlier_difference'] = (filtered['percentage_outliers'] - percentage_outliers).abs()
-    
+    filtered['outlier_difference'] = (
+        filtered['percentage_outliers'] - percentage_outliers).abs()
+
     # Sort by the absolute difference and return the top N rows
     top_records = filtered.sort_values('outlier_difference').head(top_n)
-    
-    return top_records.drop(columns=['outlier_difference'])
 
+    return top_records.drop(columns=['outlier_difference'])
+def find_top_records(dataframe, percentage_outliers, num_clusters=None, top_n=5, epsilon=1e-6):
+    """
+    Filters the dataframe to return top N rows based on custom ranking logic:
+    - If num_clusters exists: rank by ASC sorting of (num_cluster_difference + epsilon) * (1 - silhouette_score) * abs(desired_outlier - actual_outlier)
+    - If num_clusters does not exist: rank by ASC sorting of (1 - silhouette_score) * abs(desired_outlier - actual_outlier).
+    
+    Negative silhouette scores are excluded.
+
+    Parameters:
+        dataframe (pd.DataFrame): The input dataframe.
+        percentage_outliers (float): The target percentage of outliers.
+        num_clusters (int, optional): The specified number of clusters. Defaults to None.
+        top_n (int): Number of top records to return (default is 5).
+        epsilon (float): A small value to avoid zero multiplication (default is 1e-6).
+
+    Returns:
+        pd.DataFrame: Filtered dataframe with the top N closest rows.
+    """
+    # Filter out rows with negative silhouette scores
+    dataframe = dataframe[dataframe['silhouette_score'] >= 0]
+
+    if num_clusters is not None:
+        # Add column for num_cluster_difference
+        dataframe['num_cluster_difference'] = (
+            dataframe['num_clusters'] - num_clusters
+        ).abs()
+
+        # Ranking formula with num_clusters
+        dataframe['ranking_score'] = (
+            (dataframe['num_cluster_difference'] + epsilon)
+            * (1 - dataframe['silhouette_score'])
+            * (dataframe['percentage_outliers'] - percentage_outliers).abs()
+        )
+    else:
+        # Ranking formula without num_clusters
+        dataframe['ranking_score'] = (
+            (1 - dataframe['silhouette_score'])
+            * (dataframe['percentage_outliers'] - percentage_outliers).abs()
+        )
+
+    # Sort by ascending ranking_score and return top N rows
+    top_records = dataframe.sort_values('ranking_score', ascending=True).head(top_n)
+
+    return top_records.drop(columns=['ranking_score', 'num_cluster_difference'], errors='ignore')
 
 
 def hyper_param_search(data, percentage_outliers, dataset_name, num_clusters=None, top_n=5, plot=False,
                        eps_values=np.linspace(0.1, 1.0, 10), min_samples_values=range(3, 10),
-                       metrics=['euclidean', 'manhattan', 'mahalanobis'], 
-                       algorithms=['auto', 'ball_tree', 'kd_tree', 'brute'], 
-                       leaf_sizes=range(10, 60, 10), 
+                       metrics=['euclidean', 'manhattan', 'mahalanobis'],
+                       algorithms=['auto', 'ball_tree', 'kd_tree', 'brute'],
+                       leaf_sizes=range(10, 60, 10),
                        p_values=[None, 1, 2],
-                       
                        save=True):
     """
     Runs DBSCAN clustering with various parameters and optionally plots the results.
@@ -88,22 +133,26 @@ def hyper_param_search(data, percentage_outliers, dataset_name, num_clusters=Non
     results = []
 
     if plot:
-        fig, axes = plt.subplots(len(min_samples_values), len(eps_values), figsize=(20, 15))
+        fig, axes = plt.subplots(
+            len(min_samples_values), len(eps_values), figsize=(20, 15))
         fig.tight_layout(pad=3.0)
 
     for i, ((eps, min_samples, metric, algorithm, leaf_size, p), ax) in enumerate(
         zip(
             tqdm(itertools.product(eps_values, min_samples_values, metrics, algorithms, leaf_sizes, p_values),
-                 total=len(eps_values) * len(min_samples_values) * len(metrics) * len(algorithms) * len(leaf_sizes) * len(p_values),
-                 desc="Processing DBSCAN parameters"), 
+                 total=len(eps_values) * len(min_samples_values) * len(metrics) *
+                 len(algorithms) * len(leaf_sizes) * len(p_values),
+                 desc="Processing DBSCAN parameters"),
             axes.flat if plot else itertools.repeat(None)
         )
     ):
         if metric == 'mahalanobis':
             try:
                 # Precompute the pairwise Mahalanobis distances
-                distance_matrix = pairwise_distances(data, metric='mahalanobis')
-                dbscan = DBSCAN(eps=eps, min_samples=min_samples, metric='precomputed')
+                distance_matrix = pairwise_distances(
+                    data, metric='mahalanobis')
+                dbscan = DBSCAN(eps=eps, min_samples=min_samples,
+                                metric='precomputed')
                 labels = dbscan.fit_predict(distance_matrix)
             except:
                 if comm == 0:
@@ -127,8 +176,19 @@ def hyper_param_search(data, percentage_outliers, dataset_name, num_clusters=Non
             ax.set_xticks([])
             ax.set_yticks([])
 
-        silhouette = silhouette_score(data, labels) if len(set(labels)) > 1 else -1
+        #  silhouette = silhouette_score(data, labels) if len(set(labels)) > 1 else -1
+        #####################
+        silhouette = -1  # Default value in case of invalid labels
 
+        if 1 < len(set(labels)) < len(data):  # Valid number of clusters
+            try:
+                silhouette = silhouette_score(data, labels)
+            except ValueError as e:
+                print(f"Error calculating silhouette score: {e}")
+        else:
+            # print(f"Invalid number of clusters: {len(set(labels))}")
+            pass
+        #####################
         results.append({
             'num_clusters': n_clusters,
             'percentage_outliers': n_outliers / len(data),
@@ -143,10 +203,12 @@ def hyper_param_search(data, percentage_outliers, dataset_name, num_clusters=Non
 
     if plot:
         plt.savefig('clusters.pdf', dpi=600)
-    
+
     all_results = pd.DataFrame(results)
     if save:
-        all_results.to_csv(f'../data/{dataset_name}_grid_search_results.csv', index=False)
-    top_results = find_top_records(all_results, percentage_outliers=percentage_outliers, num_clusters=num_clusters, top_n=top_n)
-    
+        all_results.to_csv(
+            f'../data/{dataset_name}_grid_search_results.csv', index=False)
+    top_results = find_top_records(
+        all_results, percentage_outliers=percentage_outliers, num_clusters=num_clusters, top_n=top_n)
+
     return top_results
