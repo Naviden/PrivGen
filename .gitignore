@@ -1,3 +1,4 @@
 *.pyc
 *.bkp
 *.driveupload
+.ipynb_checkpoints
