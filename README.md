@@ -1,1 +1,1 @@
-![flow](./diagram.png)
+![flow](diagram.png)
