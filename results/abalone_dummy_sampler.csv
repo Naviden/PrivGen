@@ -1,0 +1,40 @@
+Metric,Better Results,Magnitude,orig,privgen
+sanity.data_mismatch.score,results 2,marginally,0.0,0.0
+sanity.common_rows_proportion.score,results 2,marginally,0.9999999999976059,0.9556057185830058
+sanity.nearest_syn_neighbor_distance.mean,results 1,marginally,0.0,0.00618313937369346
+sanity.close_values_probability.score,results 1,marginally,1.0,0.9917231000752446
+sanity.distant_values_probability.score,results 1,marginally,0.0,0.0007524454477050414
+stats.jensenshannon_dist.marginal,results 1,marginally,0.0,0.001258499073730649
+stats.chi_squared_test.marginal,results 1,by far,1.0,0.33332738920676824
+stats.inv_kl_divergence.marginal,results 1,marginally,1.0,0.9702978514294313
+stats.ks_test.marginal,results 1,marginally,1.0,0.9841986455981941
+stats.max_mean_discrepancy.joint,results 1,marginally,-5.551115123125783e-17,0.00021639372046672323
+stats.wasserstein_dist.joint,results 1,marginally,1.9643864116279832e-19,0.0009779573717090912
+stats.prdc.precision,results 1,marginally,1.0,0.9987459242538249
+stats.prdc.recall,results 1,marginally,1.0,0.9641334336593931
+stats.prdc.density,results 2,marginally,0.9999521187455112,1.0111361926260345
+stats.prdc.coverage,results 1,marginally,1.0,0.9739152244795586
+stats.alpha_precision.delta_precision_alpha_OC,results 1,marginally,0.9997605937275557,0.9943217756559393
+stats.alpha_precision.delta_coverage_beta_OC,results 1,marginally,0.9997605937275557,0.9930267622647166
+stats.alpha_precision.authenticity_OC,results 2,marginally,0.0,0.03661901178831201
+stats.alpha_precision.delta_precision_alpha_naive,results 1,marginally,0.9997457340278867,0.9857871415433492
+stats.alpha_precision.delta_coverage_beta_naive,results 1,marginally,0.9997457340278867,0.9912716328066216
+stats.alpha_precision.authenticity_naive,results 2,marginally,0.0,0.0398796087283672
+performance.linear_model.syn_id,results 1,marginally,0.5387622683247701,0.5235183450941031
+performance.linear_model.syn_ood,results 1,marginally,0.4768923689256052,0.4568406608444427
+performance.mlp.syn_id,results 1,marginally,0.5954848329226176,0.5690502325693766
+performance.mlp.syn_ood,results 1,marginally,0.5568361282348633,0.5422026515007019
+performance.xgb.syn_id,results 1,by far,0.9289290507634481,0.7787652810414633
+performance.xgb.syn_ood,results 1,by far,0.916657030582428,0.8293585181236267
+performance.feat_rank_distance.corr,results 2,by far,0.7857142857142856,0.7142857142857142
+performance.feat_rank_distance.pvalue,results 1,marginally,0.005505952380952381,0.014136904761904762
+detection.detection_xgb.mean,results 1,marginally,0.10975028759550683,0.15294288831478828
+detection.detection_mlp.mean,results 1,marginally,0.4907493220952821,0.4942937194490069
+detection.detection_gmm.mean,results 1,marginally,0.5008493274863796,0.5093980191076227
+detection.detection_linear.mean,results 1,marginally,0.4759255604673543,0.509336683574514
+privacy.delta-presence.score,results 2,by far,0.999999999996337,4.133333331955556
+privacy.k-anonymization.syn,Error,Ground truth values differ,,
+privacy.k-map.score,results 2,by far,22.0,30.0
+privacy.distinct l-diversity.syn,Error,Ground truth values differ,,
+privacy.identifiability_score.score,results 2,marginally,1.0,0.9568597943315776
+privacy.identifiability_score.score_OC,results 2,marginally,1.0,0.9576122397792827
