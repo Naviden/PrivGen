@@ -1,0 +1,17 @@
+Metric,Better Results,Magnitude,orig,privgen
+sanity.data_mismatch.score,results 1,marginally,0.0,0.02702702702702703
+sanity.common_rows_proportion.score,results 2,by far,0.9999999999880239,0.0
+sanity.nearest_syn_neighbor_distance.mean,results 2,marginally,0.0,0.0
+sanity.close_values_probability.score,results 2,marginally,1.0,1.0
+sanity.distant_values_probability.score,results 2,marginally,0.0,0.0
+stats.jensenshannon_dist.marginal,results 1,marginally,0.0,0.026532437770531294
+stats.ks_test.marginal,results 2,by far,,
+performance.linear_model.syn_id,results 2,marginally,-1.0,-1.0
+performance.linear_model.syn_ood,results 2,marginally,-1.0,-1.0
+performance.mlp.syn_id,results 2,marginally,-1.0,-1.0
+performance.mlp.syn_ood,results 2,marginally,-1.0,-1.0
+performance.xgb.syn_id,results 1,by far,0.9999509652455648,-0.07619861761728923
+performance.xgb.syn_ood,results 1,by far,0.9999454617500305,-0.07526898384094238
+performance.feat_rank_distance.corr,results 2,by far,0.7730206825239258,0.0
+performance.feat_rank_distance.pvalue,results 2,marginally,2.4124231243832976e-10,0.0
+detection.detection_xgb.mean,results 1,by far,0.10146724424436625,1.0
