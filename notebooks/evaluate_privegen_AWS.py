@@ -107,48 +107,25 @@ def eval_5(base, source, target_column, sensetive_columns, data_name,
 plugins = Plugins()
 plugin_names = plugins.list() 
 
-def download_dataset(dataset_name):
-    # Map dataset names to UCI ML repository IDs
-    dataset_ids = {
-    "iris": {"id": 53, "target_column": "target", "sensitive_columns": ["sepal width"]},
-    "wine": {"id": 109, "target_column": "target", "sensitive_columns": ["Alcohol", "Malicacid","Ash","Alcalinity_of_ash"]},
-    "abalone": {"id": 1, "target_column": "target", "sensitive_columns": ["Sex"]},
-    "heart disease": {"id": 45, "target_column": "target", "sensitive_columns": ["age", "sex"]},
-    "adult": {"id": 2, "target_column": "target", "sensitive_columns": ["age", "race", "sex"]},
-    "car evaluation": {"id": 19, "target_column": "target", "sensitive_columns": ["buying"]},
-    "automobile": {"id": 10, "target_column": "target", "sensitive_columns": ["price"]},
-    "mushroom": {"id": 73, "target_column": "target", "sensitive_columns": ["odor", "bruises"]},
-    "german credit": {"id": 144, "target_column": "target", "sensitive_columns": ["Attribute1","Attribute2"]},
-    "dry bean": {"id": 602, "target_column": "target", "sensitive_columns": ["Area","Perimeter","MajorAxisLength"]},
-    "bike sharing": {"id": 275, "target_column": "target", "sensitive_columns": []},
-    "auto_mpg": {"id": 9, "target_column": "target", "sensitive_columns": ["origin"]},
-    "RT-IoT2022": {"id": 942, "target_column": "target", "sensitive_columns": []},
-    "EEG Eye State": {"id": 264, "target_column": "target", "sensitive_columns": []},
-    "Metro": {"id": 492, "target_column": "target", "sensitive_columns": []}
-    }
-    
-    
-    # Fetch the dataset ID
-    dataset_id = dataset_ids[dataset_name]['id']
-    
-    # Fetch the dataset
-    dataset = fetch_ucirepo(id=dataset_id)
-    X = dataset.data.features
-    y = dataset.data.targets
-    X['target'] = y
-    
-    return X, dataset_ids[dataset_name]['target_column'], dataset_ids[dataset_name]['sensitive_columns']
 
 
+base = pd.read_csv('../datasets/cervical-cancer_csv.csv')
+source = pd.read_csv('../data/cervical_8_decoded_data.csv')
 
-base = pd.read_csv('./datasets/cervical-cancer_csv.csv')
-source = pd.read_csv('./data/cervical_8_decoded_data.csv')
+#inputation
+from sklearn.impute import SimpleImputer
+
+cols = base.columns
+imp = SimpleImputer(strategy="most_frequent")
+base = pd.DataFrame(imp.fit_transform(base))
+base.columns = cols
+
 target_column = "Biopsy"
 sensetive_columns = []
 
 
 
-files = glob('./results/*.csv') # where we save the results - current path works is Ok for GDrive
+files = glob('../results/*.csv') # where we save the results - current path works is Ok for GDrive
 existing = [e.split('/')[-1].split('.')[0] for e in files]
 
 # here we can use abalone dataset because we previously applied privgen to it (privgen_example.ipynb) and the required artifacts are already in data directory
@@ -157,6 +134,11 @@ data_name = 'cervical'
 # all synthesizers
 plugins = Plugins()
 plugin_names = plugins.list()
+
+# fuck privbayes, great
+plugin_names = ['tvae', 'dpgan', 'adsgan', 'pategan', 'marginal_distributions',
+ 'dummy_sampler', 'bayesian_network', 'nflow', 'arf', 'fflows',  'ctgan', 
+  'decaf',  'ddpm', 'aim', 'uniform_sampler',  'rtvae']
 
 for synthesizer in plugin_names:
   # we don't need survival data AND "aim" model gives errors and we dont want to re-run what we have already done, so...
@@ -167,7 +149,7 @@ for synthesizer in plugin_names:
       start_time = time.time()
       # Monitor memory usage during execution
       start_memory, peak_memory = memory_usage((eval_5(base, source, target_column, sensetive_columns, data_name,
-                save_path='./results', synthesizer=synthesizer)), retval=False, interval=0.1, timeout=None, max_usage=True)
+                save_path='../results', synthesizer=synthesizer)), retval=False, interval=0.1, timeout=None, max_usage=True)
       end_memory = memory_usage(-1, retval=False)[0]  # Memory after function ends
 
       end_time = time.time()
@@ -185,7 +167,7 @@ for synthesizer in plugin_names:
           f"memory_diff_MB: {memory_diff:.2f}\n"
       )
 
-      with open('./results/performance_log.txt', "a") as log_file:
+      with open('../results/performance_log.txt', "a") as log_file:
           log_file.write(log_line)
     except Exception as e:
       print('='*80)
