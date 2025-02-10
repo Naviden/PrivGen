@@ -57,7 +57,7 @@ def compare_results(results1: pd.DataFrame, results2: pd.DataFrame):
 
 def eval_5(base, source, target_column, sensetive_columns, data_name,
            save_path, file_name=None, task='regression', synthesizer='tvae',
-           metrics=['sanity', 'stats', 'performance', 'detection', 'privacy']):
+           metrics=['sanity', 'stats', 'privacy']):
 
   """
   creates a csv file that compares the synthetic data generated from original data (base) and original data+Privegen (source)
@@ -71,10 +71,16 @@ def eval_5(base, source, target_column, sensetive_columns, data_name,
   'privacy': ['delta-presence', 'k-anonymization', 'k-map', 'distinct l-diversity', 'identifiability_score']
   }
 
+  available_metrics = {
+    'sanity': ['data_mismatch', 'common_rows_proportion', 'nearest_syn_neighbor_distance', 'close_values_probability'],
+    'stats': ['jensenshannon_dist', 'chi_squared_test', 'feature_corr', 'inv_kl_divergence', 'ks_test', 'max_mean_discrepancy', 'wasserstein_dist', 'prdc', 'alpha_precision'], # missing: Frechet inception dictance
+    'privacy': ['delta-presence', 'k-anonymization', 'k-map', 'distinct l-diversity', 'identifiability_score']
+    }
+
   needed_metrics = {k:available_metrics[k] for k in metrics}
 
   results = []
-  for src in [base, source]:
+  for i, src in enumerate([base, source]):
 
     X = src.copy()
     plugin = Plugins().get(synthesizer)
@@ -91,6 +97,13 @@ def eval_5(base, source, target_column, sensetive_columns, data_name,
     task_type=task,
     random_state=42
     )
+    if i == 0:
+        score['privgen_used'] == [False for i in len(score)]
+        name = 'orig'
+    else:
+        score['privgen_used'] == [True for i in len(score)]
+        name = 'prigen'
+    score.to_csv(f'../intermed_results/{synthesizer}_{name}', index=False)
 
     results.append(score)
 
@@ -142,7 +155,7 @@ plugin_names = ['tvae', 'dpgan', 'adsgan', 'pategan', 'marginal_distributions',
 
 for synthesizer in plugin_names:
   # we don't need survival data AND "aim" model gives errors and we dont want to re-run what we have already done, so...
-  if f'{data_name}_{synthesizer}' not in existing and 'survival' not in synthesizer and synthesizer != 'aim':
+#   if f'{data_name}_{synthesizer}' not in existing and 'survival' not in synthesizer and synthesizer != 'aim':
 
     print(f'Running {synthesizer}. . . ')
     try:
