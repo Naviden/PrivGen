@@ -127,12 +127,13 @@ plugin_names = plugins.list()
 
 # ----------------------------------------
 # dataset info
-data_name = 'health' 
-target_column = "claim"
-sensetive_columns = ['diabetes']
+data_name = 'german' 
+dataset_name= 'german'
+
+target_column = "class"
+sensetive_columns = ['Attribute 10']
 # ----------------------------------------
 
-dataset_name= 'health'
 
 def ordinal_encode_categorical(data, dataset_name, save=True):
     """
@@ -171,12 +172,23 @@ def ordinal_encode_categorical(data, dataset_name, save=True):
         encoded_data.to_csv(f'../data/{dataset_name}_1_encoded_data.csv', index=False)
     return encoded_data
 
-base = pd.read_csv('../datasets/healthinsurance.csv')
-base = ordinal_encode_categorical(
-        base, dataset_name, save=False)
+from ucimlrepo import fetch_ucirepo 
+  
+# fetch dataset 
+statlog_german_credit_data = fetch_ucirepo(id=144) 
+  
+# data (as pandas dataframes) 
+X = statlog_german_credit_data.data.features 
+y = statlog_german_credit_data.data.targets 
+data = X
+data['class'] = y
+base = data
+# base = ordinal_encode_categorical(
+#         base, dataset_name, save=False)
+
 source = pd.read_csv(f'../data/{data_name}_8_decoded_data.csv')
-source = ordinal_encode_categorical(
-        source, dataset_name, save=False)
+# source = ordinal_encode_categorical(
+#         source, dataset_name, save=False)
 
 #inputation
 from sklearn.impute import SimpleImputer
