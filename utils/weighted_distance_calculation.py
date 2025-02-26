@@ -25,20 +25,32 @@ def geometric_median(X, eps=1e-5):
             return y1
         y = y1
 
-def cluster_and_analyze(data, dataset_name):
+def cluster_and_analyze(data, dataset_name, feature_weights=None):
     """
-    Adds a 'distance' column to the data, representing the distance of each point
-    from its cluster's geometric median.
+    Adds a 'distance' column to the data, representing the weighted distance 
+    of each point from its cluster's geometric median.
 
     Parameters:
         data (pd.DataFrame): Input data with a 'cluster' column.
+        dataset_name (str): Name of the dataset for saving results.
+        feature_weights (dict, optional): Dictionary of feature weights {feature_name: weight}.
+                                          If None, all features have equal weight.
 
     Returns:
         pd.DataFrame: Data with an additional 'distance' column.
     """
-    # Ensure input is a DataFrame, numeric columns only
+    # Ensure input is a DataFrame and extract numeric columns
     if isinstance(data, np.ndarray):
         data = pd.DataFrame(data)
+    
+    numeric_columns = [col for col in data.columns if col != 'cluster']
+    
+    # Set equal weights if feature_weights is not provided
+    if feature_weights is None:
+        weights = np.ones(len(numeric_columns)) / len(numeric_columns)
+    else:
+        raw_weights = np.array([feature_weights.get(col, 1.0) for col in numeric_columns])
+        weights = raw_weights / np.sum(raw_weights)  # Normalize weights to sum to 1
 
     result_frames = []
     
@@ -46,8 +58,11 @@ def cluster_and_analyze(data, dataset_name):
         cluster_data = data[data['cluster'] == cluster_label].drop(columns=['cluster'])
         median = geometric_median(cluster_data.values)
         
-        # Calculate distance from each point in this cluster to the median
-        distances = cluster_data.apply(lambda row: distance.euclidean(row.values, median), axis=1)
+        # Calculate weighted distance for each point
+        def weighted_distance(row):
+            return np.sqrt(np.sum(weights * (row.values - median) ** 2))
+
+        distances = cluster_data.apply(weighted_distance, axis=1)
         
         # Add distances as a new column to the original cluster data
         cluster_data_with_distances = data[data['cluster'] == cluster_label].copy()
