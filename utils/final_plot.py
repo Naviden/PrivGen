@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
-def plot_data_points(dataset_name):
+def plot_data_points(dataset_name, label):
     """
     Loads three CSV files, reduces dimensions to 2 if necessary, plots all points with specific markers 
     and colors for each file, and displays a scatter plot.
@@ -52,15 +52,24 @@ def plot_data_points(dataset_name):
     plt.scatter(final_cleaned['feature_0'], final_cleaned['feature_1'], 
                 color='blue', marker='o', label='Final Cleaned', alpha=0.7)
     plt.scatter(outliers_dbscan['feature_0'], outliers_dbscan['feature_1'], 
-                color='red', marker='o', label='Outliers by DBSCAN', alpha=0.7)
+                color='red', marker='o', label='Outliers by DBSCAN', alpha=0.7, edgecolors='black')
     plt.scatter(outliers_distance['feature_0'], outliers_distance['feature_1'], 
-                color='red', marker='x', label='Outliers by Distance', alpha=0.7)
+                color='red', marker='x', label='Outliers by Distance', alpha=0.7, s=100, edgecolors='black')
     
     # Plot details
-    plt.xlabel('Feature 0')
-    plt.ylabel('Feature 1')
-    plt.title('Scatter Plot of Data Points')
+    plt.xlabel('Principal Component 1')
+    plt.ylabel('Principal Component 2')
+    plt.title(f'{label}: PCA-Reduced Scatter Plot of Data Points and Outliers', fontsize=15)
     plt.legend(loc='best')
-    
+
+    # Remove x and y ticks explicitly
+    plt.xticks([], [])
+    plt.yticks([], [])
+
+    # Remove tick marks as well
+    ax = plt.gca()
+    ax.xaxis.set_ticks_position('none') 
+    ax.yaxis.set_ticks_position('none') 
+    plt.savefig(f'../figures/{label}_PCA.pdf', dpi=300)
     # Display the plot
     plt.show()
