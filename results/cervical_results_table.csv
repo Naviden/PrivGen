@@ -1,0 +1,20 @@
+                                          ,adsgan ,pategan ,dpgan ,decaf ,ctgan ,tvae ,rtvae ,ddpm ,arf
+privacy.delta-presence.score            
+privacy.distinct l-diversity.syn        
+privacy.k-anonymization.syn             
+privacy.k-map.score                     
+sanity.close_values_probability.score    
+sanity.common_rows_proportion.score       
+sanity.data_mismatch.score                
+sanity.nearest_syn_neighbor_distance.mean 
+stats.alpha_precision.authenticity_naive  
+stats.chi_squared_test.marginal           
+stats.inv_kl_divergence.marginal          
+stats.jensenshannon_dist.marginal         
+stats.ks_test.marginal                    
+stats.max_mean_discrepancy.joint          
+stats.prdc.coverage                       
+stats.prdc.density                        
+stats.prdc.precision                      
+stats.prdc.recall                         
+stats.wasserstein_dist.joint             

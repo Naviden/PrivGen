@@ -1,0 +1,20 @@
+,adsgan,pategan,dpgan,decaf,ctgan,tvae,rtvae,ddpm,arf
+privacy.delta-presence.score,0,0,1,0,0,0,0,0,0
+privacy.distinct l-diversity.syn,0,0,0,0,0,0,0,0,0
+privacy.k-anonymization.syn,0,0,0,0,0,0,0,0,0
+privacy.k-map.score,0,0,1,0,0,0,0,0,0
+sanity.close_values_probability.score,0,1,1,0,0,0,0,0,1
+sanity.common_rows_proportion.score,0,0,0,0,0,0,0,0,0
+sanity.data_mismatch.score,0,0,0,0,0,0,0,0,0
+sanity.nearest_syn_neighbor_distance.mean,0,1,1,0,0,0,1,1,1
+stats.alpha_precision.authenticity_naive,1,1,0,1,1,1,1,1,1
+stats.chi_squared_test.marginal,0,0,0,0,0,0,0,0,0
+stats.inv_kl_divergence.marginal,1,1,1,1,1,1,1,1,1
+stats.jensenshannon_dist.marginal,0,1,0,0,0,0,0,0,0
+stats.ks_test.marginal,1,0,1,1,1,1,1,1,1
+stats.max_mean_discrepancy.joint,0,0,0,0,0,0,0,0,0
+stats.prdc.coverage,1,1,1,0,1,1,1,1,0
+stats.prdc.density,1,1,0,1,1,1,1,1,1
+stats.prdc.precision,1,1,0,1,1,1,1,1,1
+stats.prdc.recall,0,0,0,0,0,0,1,0,0
+stats.wasserstein_dist.joint,0,0,0,0,0,0,0,0,0

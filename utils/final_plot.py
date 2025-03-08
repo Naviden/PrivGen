@@ -56,20 +56,21 @@ def plot_data_points(dataset_name, label):
     plt.scatter(outliers_distance['feature_0'], outliers_distance['feature_1'], 
                 color='red', marker='x', label='Outliers by Distance', alpha=0.7, s=100, edgecolors='black')
     
-    # Plot details
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
-    plt.title(f'{label}: PCA-Reduced Scatter Plot of Data Points and Outliers', fontsize=15)
-    plt.legend(loc='best')
+    # Remove x and y ticks
+    plt.xticks([])
+    plt.yticks([])
 
-    # Remove x and y ticks explicitly
-    plt.xticks([], [])
-    plt.yticks([], [])
-
-    # Remove tick marks as well
     ax = plt.gca()
-    ax.xaxis.set_ticks_position('none') 
-    ax.yaxis.set_ticks_position('none') 
+    # Remove borders
+    ax.set_frame_on(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+
+    # Adjust layout and save without extra padding
+    plt.tight_layout()
+    plt.box(True)
     plt.savefig(f'../figures/{label}_PCA.pdf', dpi=300)
     # Display the plot
     plt.show()
