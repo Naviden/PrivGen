@@ -1,0 +1,5 @@
+attribute,n_classes,baseline,degenerate,model,acc,bal_acc,advantage,dataset,arm,synth,secs
+diabetes,2,0.777,False,logreg,0.777,0.5,0.0,health,privgen,arf,41.2
+diabetes,2,0.777,False,rf,0.8892,0.7639,0.1122,health,privgen,arf,41.2
+smoker,2,0.8019,False,logreg,0.9231,0.8513,0.1212,health,privgen,arf,41.2
+smoker,2,0.8019,False,rf,0.9213,0.8428,0.1194,health,privgen,arf,41.2

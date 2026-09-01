@@ -1,0 +1,5 @@
+attribute,n_classes,baseline,degenerate,model,acc,bal_acc,advantage,dataset,arm,synth,secs
+class,2,0.7,False,logreg,0.757,0.6283,0.057,german,base,adsgan,47.7
+class,2,0.7,False,rf,0.73,0.5852,0.03,german,base,adsgan,47.7
+Attribute9,4,0.548,False,logreg,0.6,0.3077,0.052,german,base,adsgan,47.7
+Attribute9,4,0.548,False,rf,0.599,0.3153,0.051,german,base,adsgan,47.7

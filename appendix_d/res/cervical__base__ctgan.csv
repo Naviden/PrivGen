@@ -1,0 +1,5 @@
+attribute,n_classes,baseline,degenerate,model,acc,bal_acc,advantage,dataset,arm,synth,secs
+Biopsy,2,0.9353,False,logreg,0.9437,0.6769,0.0084,cervical,base,ctgan,60.9
+Biopsy,2,0.9353,False,rf,0.9449,0.5913,0.0096,cervical,base,ctgan,60.9
+STDs:HIV,2,0.9784,False,logreg,0.9772,0.4994,-0.0012,cervical,base,ctgan,60.9
+STDs:HIV,2,0.9784,False,rf,0.9784,0.5,0.0,cervical,base,ctgan,60.9

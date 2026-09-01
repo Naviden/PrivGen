@@ -1,0 +1,3 @@
+attribute,n_classes,baseline,degenerate,model,acc,bal_acc,advantage,dataset,arm,synth,secs
+Biopsy,2,0.9353,True,n/a,0.9353,0.5,0.0,cervical,privgen,ddpm,30.1
+STDs:HIV,2,0.9784,True,n/a,0.9784,0.5,0.0,cervical,privgen,ddpm,30.1

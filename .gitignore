@@ -3,3 +3,9 @@
 *.driveupload
 .ipynb_checkpoints
 run_notes.md
+# synthcity environment (1.7 GB, rebuildable - see appendix_d/README.md)
+.venv_synth/
+checkpoints/
+*.log
+__pycache__/
+appendix_b/

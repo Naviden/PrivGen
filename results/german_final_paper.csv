@@ -1,0 +1,18 @@
+,index,adsgan,pategan,dpgan,decaf,ctgan,tvae,rtvae,ddpm,arf
+0,privacy.delta-presence.score,-62.54,-211.76,53.42,72.06,-18.95,-69.23,57.59,28.64,35.0
+1,privacy.distinct l-diversity.syn,30.77,-80.0,100.0,100.0,-25.0,1400.0,0.0,-18.75,54.55
+2,privacy.k-anonymization.syn,30.77,-80.0,100.0,100.0,-25.0,1400.0,0.0,-18.75,54.55
+3,privacy.k-map.score,28.57,-75.0,100.0,466.67,75.0,100.0,0.0,37.5,300.0
+4,sanity.close_values_probability.score,-0.65,2.25,-1.92,-3.27,-1.0,-1.96,5.35,2.04,-1.84
+5,sanity.nearest_syn_neighbor_distance.mean,70.32,70.78,-12.66,-48.19,56.62,3.55,31.81,76.47,-94.27
+6,stats.alpha_precision.authenticity_naive,-1.57,11.2,1.32,-4.99,-5.05,-14.92,-14.22,2.54,-5.22
+7,stats.chi_squared_test.marginal,-1.24,-52.9,98.32,6.89,1.49,3.23,22.27,-5.13,0.14
+8,stats.inv_kl_divergence.marginal,1.54,26.7,-24.6,-0.69,1.67,-5.37,-6.01,1.4,1.62
+9,stats.jensenshannon_dist.marginal,-28.7,-70.17,-4.82,9.88,18.13,49.21,53.94,-0.41,-8.5
+10,stats.ks_test.marginal,0.53,10.5,10.3,-0.15,-1.0,-6.32,-14.14,-0.43,-0.15
+11,stats.max_mean_discrepancy.joint,-7.87,-9.03,-7.77,-7.88,-7.87,-7.87,-1.06,0.5,-7.87
+12,stats.prdc.coverage,-4.86,-5.72,-4.41,-56.01,0.13,-10.81,12.89,-3.65,-1.05
+13,stats.prdc.density,9.01,40.02,-32.59,6.28,7.76,2.41,139.08,10.69,2.61
+14,stats.prdc.precision,1.22,0.6,-11.23,0.22,0.73,-0.39,-3.13,1.21,0.33
+15,stats.prdc.recall,-3.13,-33.34,-0.73,-64.47,-5.03,-4.43,-79.61,-3.21,-2.87
+16,stats.wasserstein_dist.joint,0.29,-36.02,-52.82,-0.11,5.35,21.54,17.78,3.23,-2.23
