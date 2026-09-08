@@ -8,4 +8,10 @@ run_notes.md
 checkpoints/
 *.log
 __pycache__/
-appendix_b/
+files_sent/
+workspace/
+*.xlsx
+!metrics_direction_2.xlsx
+colored_table.tex
+corrected_table.tex
+final_colored_table.tex

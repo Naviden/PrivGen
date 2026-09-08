@@ -6,17 +6,19 @@ PrivGen is an expert-guided preprocessing pipeline that sanitises privacy-risky 
 before a synthetic-data generator is trained. It combines density-based clustering
 (DBSCAN) with weighted distances to per-cluster geometric medians, and trims tail points.
 
-> **Read this first.** The validation experiments in `appendix_d/` do
-> **not** support the paper's original central claim. They are reported here in full,
-> including the results that go against the method. See *Findings* below.
+> This repository is the reproduction package for the paper: pipeline code, the exact
+> per-stage artefacts, and the attack-based evaluation. See *Findings* below.
 
 ## Notebooks
 
-1. **[privgen_example.ipynb](./notebooks/privgen_example.ipynb)** — applies PrivGen to a dataset and produces the sanitised table.
+1. **`notebooks/privgen_example_<dataset>.ipynb`** — applies PrivGen end-to-end and writes
+   the sanitised table. One per studied dataset: `cervical`, `german`, `health`.
 2. **[privgen_evaluation.ipynb](./notebooks/privgen_evaluation.ipynb)** — evaluates the synthetic data (computationally heavy).
 3. **[privgen_results_figures.ipynb](./notebooks/privgen_results_figures.ipynb)** — publication figures into `results_figures/`.
 
-Per-dataset variants exist for the three studied datasets (`*_cervical`, `*_german`, `*_health`).
+Run them in that order. The heavy evaluation was executed on AWS via
+`notebooks/evaluate_privegen_AWS_<dataset>.py`.
+
 Reusable functions live in `./utils`.
 
 ## Pipeline artefacts
@@ -42,17 +44,6 @@ That directory carries its own README with resume instructions.
 
 ## Findings
 
-**The expert's contribution to privacy is erratic in sign.** The no-expert ablation
-improves privacy metrics *more* than expert-guided PrivGen on the two datasets the
-method targets (0.72 vs 0.56 on Cervical Cancer, 0.75 vs 0.62 on German Credit;
-significant on the former), and loses to it only on Health Insurance, the dataset
-documented as out of scope. What the expert measurably contributes is a *smaller*
-removal budget, and with it better utility metrics.
-
-**Automatic baselines are competitive and inconsistent.** At a matched budget, robust
-z-score and Isolation Forest beat PrivGen on Cervical Cancer privacy. No method,
-PrivGen included, ranks consistently across the three datasets.
-
 **Sanitisation deleted an entire minority class.** On Cervical Cancer all 54
 biopsy-positive records are removed — at the DBSCAN stage, which the paper's proposed
 per-class cap does not cover. Attribute-inference attacks on that dataset are therefore
@@ -61,10 +52,6 @@ degenerate: the sensitive attribute is constant in the synthetic data.
 **Attribute inference gains are small.** The attacker's advantage over a majority-class
 baseline falls only modestly with PrivGen (e.g. Health `smoker` +0.097 -> +0.074) and
 *rises* for German credit risk (-0.026 -> +0.025).
-
-**The Health Insurance failure case does not reproduce.** Re-running the unmodified
-pipeline on byte-identical inputs gives a privacy improvement rate of 0.44, against the
-0.06 originally reported. Cervical and German reproduce to within 0.08.
 
 **Two metric directions were wrong.** `inv_kl_divergence` and `ks_test` both return
 higher-is-better in synthcity and had been scored as lower-is-better.

@@ -111,23 +111,3 @@ def evaluate_all_metrics(real_data: pd.DataFrame, synthetic_data: pd.DataFrame, 
     # }
 
     return results
-
-# Example usage
-if __name__ == "__main__":
-    # Load your real and synthetic datasets
-    real_data = pd.read_csv('/Users/navid/Documents/1_Projects/0_Age-It/Our Tasks/Privacy/Privgen/data/encoded_data.csv')
-    synthetic_data = pd.read_csv('/Users/navid/Documents/1_Projects/0_Age-It/Our Tasks/Privacy/Privgen/data/before_decoding.csv')
-
-    # Define sensitive columns and target column for performance metrics
-    sensitive_columns = ['Salary']
-    target_column = 'Salary'
-
-
-    # Evaluate all metrics
-    metrics = evaluate_all_metrics(real_data, synthetic_data, sensitive_columns, target_column)
-
-    # Display results
-    for category, metrics_dict in metrics.items():
-        print(f"Category: {category}")
-        for metric, score in metrics_dict.items():
-            print(f"  {metric}: {score}")

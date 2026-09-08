@@ -22,7 +22,7 @@ from synthcity.plugins.core.dataloader import GenericDataLoader
 from synthcity.metrics.eval_privacy import DomiasMIAKDE
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ARMS=os.path.join(os.path.dirname(ROOT),'appendix_b','arms')
+ARMS=os.path.join(ROOT,'arms')   # self-contained: base + privgen tables
 R=f'{ROOT}/mia'; os.makedirs(R,exist_ok=True)
 SEED=42
 TGT={'cervical':'Biopsy','german':'class','health':'claim'}

@@ -29,7 +29,7 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import accuracy_score, balanced_accuracy_score
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ARMS=os.path.join(os.path.dirname(ROOT),'appendix_b','arms')
+ARMS=os.path.join(ROOT,'arms')   # self-contained: base + privgen tables
 R=f'{ROOT}/res'; S=f'{ROOT}/synth'
 os.makedirs(R,exist_ok=True); os.makedirs(S,exist_ok=True)
 SEED=42

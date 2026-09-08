@@ -7,7 +7,8 @@ import subprocess, sys, os, time
 from concurrent.futures import ThreadPoolExecutor
 HERE=os.path.dirname(os.path.abspath(__file__))
 ROOT=os.path.dirname(HERE)
-PY=os.environ.get('PRIVGEN_PY','/Users/navid/Documents/0_Research/0_venues/Privgen/.venv_synth/bin/python')
+REPO=os.path.dirname(ROOT)
+PY=os.environ.get('PRIVGEN_PY', os.path.join(REPO,'.venv_synth','bin','python'))
 PAUSE=f'{ROOT}/PAUSE'
 ARMS=['base','privgen']
 SYNTH=['arf','tvae','ctgan','adsgan','rtvae','ddpm','dpgan','decaf']   # pategan excluded: non-terminating
