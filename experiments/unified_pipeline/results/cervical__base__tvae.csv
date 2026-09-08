@@ -1,0 +1,29 @@
+index,min,max,mean,stddev,median,iqr,rounds,errors,durations,direction,dataset,arm,synth,secs
+sanity.data_mismatch.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5
+sanity.common_rows_proportion.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5
+sanity.nearest_syn_neighbor_distance.mean,0.07012105769941518,0.07012105769941518,0.07012105769941518,0.0,0.07012105769941518,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5
+sanity.close_values_probability.score,0.9353293413173652,0.9353293413173652,0.9353293413173652,0.0,0.9353293413173652,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.jensenshannon_dist.marginal,0.006988262397644236,0.006988262397644236,0.006988262397644236,0.0,0.006988262397644236,0.0,1,0,0.01,minimize,cervical,base,tvae,46.5
+stats.chi_squared_test.marginal,0.3173639173927401,0.3173639173927401,0.3173639173927401,0.0,0.3173639173927401,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.inv_kl_divergence.marginal,0.8893954138545637,0.8893954138545637,0.8893954138545637,0.0,0.8893954138545637,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.ks_test.marginal,0.8974051896207585,0.8974051896207585,0.8974051896207585,0.0,0.8974051896207585,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.max_mean_discrepancy.joint,0.003174363427931879,0.003174363427931879,0.003174363427931879,0.0,0.003174363427931879,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5
+stats.wasserstein_dist.joint,0.2339182412437733,0.2339182412437733,0.2339182412437733,0.0,0.2339182412437733,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5
+stats.prdc.precision,0.9221556886227545,0.9221556886227545,0.9221556886227545,0.0,0.9221556886227545,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.prdc.recall,0.7724550898203593,0.7724550898203593,0.7724550898203593,0.0,0.7724550898203593,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.prdc.density,0.8526946107784431,0.8526946107784431,0.8526946107784431,0.0,0.8526946107784431,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.prdc.coverage,0.7712574850299401,0.7712574850299401,0.7712574850299401,0.0,0.7712574850299401,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.alpha_precision.delta_precision_alpha_OC,0.8804790419161677,0.8804790419161677,0.8804790419161677,0.0,0.8804790419161677,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.alpha_precision.delta_coverage_beta_OC,0.3837924151696607,0.3837924151696607,0.3837924151696607,0.0,0.3837924151696607,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.alpha_precision.authenticity_OC,0.5089820359281437,0.5089820359281437,0.5089820359281437,0.0,0.5089820359281437,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.alpha_precision.delta_precision_alpha_naive,0.7909973157134008,0.7909973157134008,0.7909973157134008,0.0,0.7909973157134008,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.alpha_precision.delta_coverage_beta_naive,0.4038323353293414,0.4038323353293414,0.4038323353293414,0.0,0.4038323353293414,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+stats.alpha_precision.authenticity_naive,0.5317365269461077,0.5317365269461077,0.5317365269461077,0.0,0.5317365269461077,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.delta-presence.score,7.333333308888889,7.333333308888889,7.333333308888889,0.0,7.333333308888889,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.k-anonymization.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.k-anonymization.syn,5.00000001,5.00000001,5.00000001,0.0,5.00000001,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.k-map.score,3.0,3.0,3.0,0.0,3.0,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.distinct l-diversity.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.distinct l-diversity.syn,5.00000001,5.00000001,5.00000001,0.0,5.00000001,0.0,1,0,0.0,maximize,cervical,base,tvae,46.5
+privacy.identifiability_score.score,0.3520958083832335,0.3520958083832335,0.3520958083832335,0.0,0.3520958083832335,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5
+privacy.identifiability_score.score_OC,0.42634730538922155,0.42634730538922155,0.42634730538922155,0.0,0.42634730538922155,0.0,1,0,0.0,minimize,cervical,base,tvae,46.5

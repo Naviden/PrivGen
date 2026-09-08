@@ -1,0 +1,12 @@
+# Exact versions used for every run reported in the paper.
+# Python 3.11.15
+synthcity==0.2.12
+torch==2.2.2
+opacus==1.4.0            # >=1.5.3 requires torch>=2.4 and breaks the import
+scikit-learn==1.9.0
+pandas==2.3.3
+numpy==1.26.4
+scipy==1.17.1
+xgboost==2.1.4
+matplotlib
+openpyxl                 # reads metrics_direction_2.xlsx

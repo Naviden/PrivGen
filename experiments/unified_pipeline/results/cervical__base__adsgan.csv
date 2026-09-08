@@ -1,0 +1,29 @@
+index,min,max,mean,stddev,median,iqr,rounds,errors,durations,direction,dataset,arm,synth,secs
+sanity.data_mismatch.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,base,adsgan,107.9
+sanity.common_rows_proportion.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,base,adsgan,107.9
+sanity.nearest_syn_neighbor_distance.mean,0.06888916033807291,0.06888916033807291,0.06888916033807291,0.0,0.06888916033807291,0.0,1,0,0.0,minimize,cervical,base,adsgan,107.9
+sanity.close_values_probability.score,0.9425149700598803,0.9425149700598803,0.9425149700598803,0.0,0.9425149700598803,0.0,1,0,0.0,maximize,cervical,base,adsgan,107.9
+stats.jensenshannon_dist.marginal,0.0036289582344536226,0.0036289582344536226,0.0036289582344536226,0.0,0.0036289582344536226,0.0,1,0,0.05,minimize,cervical,base,adsgan,107.9
+stats.chi_squared_test.marginal,0.6326797375872333,0.6326797375872333,0.6326797375872333,0.0,0.6326797375872333,0.0,1,0,0.01,maximize,cervical,base,adsgan,107.9
+stats.inv_kl_divergence.marginal,0.9411658695765132,0.9411658695765132,0.9411658695765132,0.0,0.9411658695765132,0.0,1,0,0.01,maximize,cervical,base,adsgan,107.9
+stats.ks_test.marginal,0.9054224883566201,0.9054224883566201,0.9054224883566201,0.0,0.9054224883566201,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.max_mean_discrepancy.joint,0.0030492668352175944,0.0030492668352175944,0.0030492668352175944,0.0,0.0030492668352175944,0.0,1,0,0.02,minimize,cervical,base,adsgan,107.9
+stats.wasserstein_dist.joint,0.17161740257441122,0.17161740257441122,0.17161740257441122,0.0,0.17161740257441122,0.0,1,0,0.09,minimize,cervical,base,adsgan,107.9
+stats.prdc.precision,0.8994011976047904,0.8994011976047904,0.8994011976047904,0.0,0.8994011976047904,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.prdc.recall,0.8994011976047904,0.8994011976047904,0.8994011976047904,0.0,0.8994011976047904,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.prdc.density,0.7803592814371259,0.7803592814371259,0.7803592814371259,0.0,0.7803592814371259,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.prdc.coverage,0.8335329341317366,0.8335329341317366,0.8335329341317366,0.0,0.8335329341317366,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.alpha_precision.delta_precision_alpha_OC,0.7855901989125198,0.7855901989125198,0.7855901989125198,0.0,0.7855901989125198,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.alpha_precision.delta_coverage_beta_OC,0.3886626746506986,0.3886626746506986,0.3886626746506986,0.0,0.3886626746506986,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.alpha_precision.authenticity_OC,0.518562874251497,0.518562874251497,0.518562874251497,0.0,0.518562874251497,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.alpha_precision.delta_precision_alpha_naive,0.9405547525638378,0.9405547525638378,0.9405547525638378,0.0,0.9405547525638378,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.alpha_precision.delta_coverage_beta_naive,0.3077045908183632,0.3077045908183632,0.3077045908183632,0.0,0.3077045908183632,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+stats.alpha_precision.authenticity_naive,0.5532934131736527,0.5532934131736527,0.5532934131736527,0.0,0.5532934131736527,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+privacy.delta-presence.score,9.999999900000002,9.999999900000002,9.999999900000002,0.0,9.999999900000002,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+privacy.k-anonymization.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+privacy.k-anonymization.syn,1.00000001,1.00000001,1.00000001,0.0,1.00000001,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+privacy.k-map.score,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.02,maximize,cervical,base,adsgan,107.9
+privacy.distinct l-diversity.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.05,maximize,cervical,base,adsgan,107.9
+privacy.distinct l-diversity.syn,1.00000001,1.00000001,1.00000001,0.0,1.00000001,0.0,1,0,0.05,maximize,cervical,base,adsgan,107.9
+privacy.identifiability_score.score,0.362874251497006,0.362874251497006,0.362874251497006,0.0,0.362874251497006,0.0,1,0,0.02,minimize,cervical,base,adsgan,107.9
+privacy.identifiability_score.score_OC,0.4119760479041916,0.4119760479041916,0.4119760479041916,0.0,0.4119760479041916,0.0,1,0,0.02,minimize,cervical,base,adsgan,107.9

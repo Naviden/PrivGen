@@ -1,0 +1,29 @@
+index,min,max,mean,stddev,median,iqr,rounds,errors,durations,direction,dataset,arm,synth,secs
+sanity.data_mismatch.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,privgen,tvae,47.4
+sanity.common_rows_proportion.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,privgen,tvae,47.4
+sanity.nearest_syn_neighbor_distance.mean,0.06999127977944257,0.06999127977944257,0.06999127977944257,0.0,0.06999127977944257,0.0,1,0,0.0,minimize,cervical,privgen,tvae,47.4
+sanity.close_values_probability.score,0.9269461077844311,0.9269461077844311,0.9269461077844311,0.0,0.9269461077844311,0.0,1,0,0.0,maximize,cervical,privgen,tvae,47.4
+stats.jensenshannon_dist.marginal,0.006793998286166732,0.006793998286166732,0.006793998286166732,0.0,0.006793998286166732,0.0,1,0,0.04,minimize,cervical,privgen,tvae,47.4
+stats.chi_squared_test.marginal,0.3134245901617536,0.3134245901617536,0.3134245901617536,0.0,0.3134245901617536,0.0,1,0,0.01,maximize,cervical,privgen,tvae,47.4
+stats.inv_kl_divergence.marginal,0.8730128668500959,0.8730128668500959,0.8730128668500959,0.0,0.8730128668500959,0.0,1,0,0.01,maximize,cervical,privgen,tvae,47.4
+stats.ks_test.marginal,0.9261809713905522,0.9261809713905522,0.9261809713905522,0.0,0.9261809713905522,0.0,1,0,0.01,maximize,cervical,privgen,tvae,47.4
+stats.max_mean_discrepancy.joint,0.0035737652438524955,0.0035737652438524955,0.0035737652438524955,0.0,0.0035737652438524955,0.0,1,0,0.02,minimize,cervical,privgen,tvae,47.4
+stats.wasserstein_dist.joint,0.21907671414113294,0.21907671414113294,0.21907671414113294,0.0,0.21907671414113294,0.0,1,0,0.07,minimize,cervical,privgen,tvae,47.4
+stats.prdc.precision,0.9389221556886228,0.9389221556886228,0.9389221556886228,0.0,0.9389221556886228,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.prdc.recall,0.7017964071856287,0.7017964071856287,0.7017964071856287,0.0,0.7017964071856287,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.prdc.density,0.9142514970059881,0.9142514970059881,0.9142514970059881,0.0,0.9142514970059881,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.prdc.coverage,0.7461077844311377,0.7461077844311377,0.7461077844311377,0.0,0.7461077844311377,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.alpha_precision.delta_precision_alpha_OC,0.9499015761580288,0.9499015761580288,0.9499015761580288,0.0,0.9499015761580288,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.alpha_precision.delta_coverage_beta_OC,0.41836327345309376,0.41836327345309376,0.41836327345309376,0.0,0.41836327345309376,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.alpha_precision.authenticity_OC,0.5305389221556887,0.5305389221556887,0.5305389221556887,0.0,0.5305389221556887,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.alpha_precision.delta_precision_alpha_naive,0.7638516071305664,0.7638516071305664,0.7638516071305664,0.0,0.7638516071305664,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.alpha_precision.delta_coverage_beta_naive,0.4521357285429143,0.4521357285429143,0.4521357285429143,0.0,0.4521357285429143,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+stats.alpha_precision.authenticity_naive,0.5161676646706587,0.5161676646706587,0.5161676646706587,0.0,0.5161676646706587,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+privacy.delta-presence.score,9.1999999816,9.1999999816,9.1999999816,0.0,9.1999999816,0.0,1,0,0.01,maximize,cervical,privgen,tvae,47.4
+privacy.k-anonymization.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+privacy.k-anonymization.syn,3.00000001,3.00000001,3.00000001,0.0,3.00000001,0.0,1,0,0.02,maximize,cervical,privgen,tvae,47.4
+privacy.k-map.score,2.0,2.0,2.0,0.0,2.0,0.0,1,0,0.01,maximize,cervical,privgen,tvae,47.4
+privacy.distinct l-diversity.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.04,maximize,cervical,privgen,tvae,47.4
+privacy.distinct l-diversity.syn,3.00000001,3.00000001,3.00000001,0.0,3.00000001,0.0,1,0,0.04,maximize,cervical,privgen,tvae,47.4
+privacy.identifiability_score.score,0.3413173652694611,0.3413173652694611,0.3413173652694611,0.0,0.3413173652694611,0.0,1,0,0.02,minimize,cervical,privgen,tvae,47.4
+privacy.identifiability_score.score_OC,0.4287425149700599,0.4287425149700599,0.4287425149700599,0.0,0.4287425149700599,0.0,1,0,0.02,minimize,cervical,privgen,tvae,47.4

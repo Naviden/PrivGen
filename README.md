@@ -1,78 +1,95 @@
-# PrivGen: A Human-in-the-Loop Tool for Improving the Privacy of Synthetic Data
+# PrivGen — reproduction package
 
-![Workflow Diagram](./figures/diagram.png)
+Class-aware, cluster-local outlier sanitisation applied before training a synthetic
+tabular data generator. This repository contains everything needed to reproduce the
+paper: the method, the exact sanitised tables it produced, all per-run metric outputs,
+and the scripts that turn those into the paper's tables.
 
-PrivGen is an expert-guided preprocessing pipeline that sanitises privacy-risky outliers
-before a synthetic-data generator is trained. It combines density-based clustering
-(DBSCAN) with weighted distances to per-cluster geometric medians, and trims tail points.
+> **Headline results are mixed and reported as such.** Privacy proxies improve on German
+> Credit, do not improve on Cervical Cancer, and degrade on Health Insurance. See
+> *Findings*.
 
-> This repository is the reproduction package for the paper: pipeline code, the exact
-> per-stage artefacts, and the attack-based evaluation. See *Findings* below.
-
-## Notebooks
-
-1. **`notebooks/privgen_example_<dataset>.ipynb`** — applies PrivGen end-to-end and writes
-   the sanitised table. One per studied dataset: `cervical`, `german`, `health`.
-2. **[privgen_evaluation.ipynb](./notebooks/privgen_evaluation.ipynb)** — evaluates the synthetic data (computationally heavy).
-3. **[privgen_results_figures.ipynb](./notebooks/privgen_results_figures.ipynb)** — publication figures into `results_figures/`.
-
-Run them in that order. The heavy evaluation was executed on AWS via
-`notebooks/evaluate_privegen_AWS_<dataset>.py`.
-
-Reusable functions live in `./utils`.
-
-## Pipeline artefacts
-
-`data/<dataset>_<step>_*.csv` records every stage:
-
-| step | contents |
-|---|---|
-| 1 | encoded input |
-| 2 / 3 | kept by DBSCAN / removed as DBSCAN noise |
-| 4 | per-record weighted distance to its cluster's geometric median |
-| 5 / 6 | kept after distance trimming / removed by it |
-| 8 | decoded sanitised table (the input to the synthesiser) |
-
-## Validation experiments
-
-### `appendix_d/` — attack-based evaluation
-48 attribute-inference runs across all three datasets, plus the saved synthetic samples
-(`appendix_d/synth/`). Membership inference (DOMIAS) is scaffolded but not swept — see
-*Open* below.
-
-That directory carries its own README with resume instructions.
-
-## Findings
-
-**Sanitisation deleted an entire minority class.** On Cervical Cancer all 54
-biopsy-positive records are removed — at the DBSCAN stage, which the paper's proposed
-per-class cap does not cover. Attribute-inference attacks on that dataset are therefore
-degenerate: the sensitive attribute is constant in the synthetic data.
-
-**Attribute inference gains are small.** The attacker's advantage over a majority-class
-baseline falls only modestly with PrivGen (e.g. Health `smoker` +0.097 -> +0.074) and
-*rises* for German credit risk (-0.026 -> +0.025).
-
-**Two metric directions were wrong.** `inv_kl_divergence` and `ks_test` both return
-higher-is-better in synthcity and had been scored as lower-is-better.
-
-**Everything is single-seed.** Two arms whose removal sets agree at Jaccard 0.97 differ
-by 0.11 in improvement rate — so seed noise alone is worth about 0.1, and differences
-below that should not be read as real.
-
-## Open
-
-- **Membership inference (DOMIAS).** Harness in `appendix_d/scripts/run_mia.py`. The
-  KDE and prior variants fail on Cervical Cancer with a singular covariance; the BNAF
-  variant runs. Not yet swept.
-- **Multi-seed repetition**, which the noise floor above makes a prerequisite for any
-  quantitative claim.
-
-## Environment
+## Quick start
 
 ```bash
 python3.11 -m venv .venv_synth
-.venv_synth/bin/pip install synthcity 'opacus==1.4.0'   # newer opacus needs torch>=2.4
+.venv_synth/bin/pip install -r requirements.txt
+export PRIVGEN_REPO=$PWD PRIVGEN_PY=$PWD/.venv_synth/bin/python
 ```
-`MPLBACKEND=Agg` is required or every worker opens a GUI window. PATE-GAN fails to
-terminate on some sanitised tables and is excluded where noted.
+`MPLBACKEND=Agg` is required for every run, or each worker opens a GUI window.
+
+## Where each number in the paper comes from
+
+| Paper element | Artefact | Regenerate with |
+|---|---|---|
+| Table 3 (summary proportions) | `results/raw_results_{cervical,german}_v2.csv`, `results/raw_results_health.csv` | `experiments/unified_pipeline/scripts/make_tables_results.py` |
+| Table A1 (sign table) | same | same |
+| Table A2 (significance) | same | same |
+| Table C4 (per-triple values) | same | same |
+| Table 2 (diagnostics) | raw datasets + clustering grid | `scripts/make_tables_audit.py` |
+| Table B3 (per-class removal audit) | `experiments/unified_pipeline/arms/` | `scripts/make_tables_audit.py` |
+| §4.3.1 Cervical config | `experiments/unified_pipeline/config/cervical_*.{json,csv}` | `scripts/select_config_cervical.py` |
+| §4.3.3 German config | `experiments/unified_pipeline/config/german_*.{json,csv}` | `scripts/sanitise.py german` |
+| Appendix D (attribute inference) | `appendix_d/` | `appendix_d/scripts/driver_attack.py` |
+
+**Which runs the paper reports.** Cervical Cancer and German Credit use the unified
+pipeline in `experiments/unified_pipeline/` (`*_v2.csv` results). Health Insurance uses
+the earlier hand-thresholded pipeline in `notebooks/` + `data/`
+(`results/raw_results_health.csv`); this is stated in the paper and is a known
+inconsistency, not an oversight.
+
+## Reproducing the two pipelines
+
+**Unified pipeline (Cervical Cancer, German Credit).** Selects a DBSCAN configuration
+subject to a per-class cap, then trims the $(1-\tau)$ distance tail within each
+(cluster, class) stratum:
+
+```bash
+cd experiments/unified_pipeline
+MPLBACKEND=Agg $PRIVGEN_PY scripts/select_config_cervical.py    # -> config/cervical_chosen.json
+MPLBACKEND=Agg $PRIVGEN_PY scripts/sanitise.py german           # -> arms/german__privgen.csv
+MPLBACKEND=Agg $PRIVGEN_PY scripts/run_all.py cervical 3        # -> results/  (~12 min)
+MPLBACKEND=Agg $PRIVGEN_PY scripts/run_all.py german 3          # -> results/  (~12 min)
+$PRIVGEN_PY scripts/make_tables_results.py                      # -> tables/
+$PRIVGEN_PY scripts/make_tables_audit.py
+```
+
+**Original pipeline (Health Insurance).** `notebooks/privgen_example_health.ipynb`
+produces `data/health_{1..8}_*.csv`; `notebooks/evaluate_privegen_AWS_health.py` then
+trains the nine synthesisers. Heavy — the original was run on an AWS `g6.4xlarge`.
+
+## Layout
+
+| Path | Contents |
+|---|---|
+| `utils/` | the method: encoding, DBSCAN, weighted distances, trimming |
+| `experiments/unified_pipeline/` | the runs the paper reports for CC and GC: scripts, sanitised tables (`arms/`), per-run metrics (`results/`), chosen configs and full config searches (`config/`) |
+| `appendix_d/` | attribute-inference attacks, saved synthetic samples, MIA harness |
+| `datasets/` | raw inputs |
+| `data/` | per-stage artefacts of the original pipeline (`_1` encoded … `_8` decoded) |
+| `results/` | per-triple metric values behind the paper's tables |
+| `notebooks/` | per-dataset pipeline notebooks and the AWS evaluation scripts |
+
+## Findings
+
+- **German Credit** is the only dataset with a significant privacy gain (61% of
+  model–metric combinations, Wilcoxon *p* = 0.009, median +84%).
+- **Cervical Cancer** privacy proxies do not improve (39%: 14 improvements, 19
+  degradations). A cap-free configuration reports 64% *only by deleting all 54
+  biopsy-positive records*; no configuration on the original search grid retains one.
+  See `experiments/unified_pipeline/CERVICAL_CLASS_COLLAPSE.md`.
+- **Health Insurance** privacy degrades (6%). Separation-based diagnostics fail to
+  predict this; a quasi-identifier statistic on the raw data succeeds.
+- Two metric directions were corrected against synthcity's implementations
+  (`inv_kl_divergence` and `ks_test` are higher-is-better).
+- **Every cell is a single seed.** Two arms whose removal sets agree at Jaccard 0.97
+  differ by 0.11 in improvement rate, so differences below ~0.1 should not be read as
+  real.
+
+## Known gaps
+
+- Health Insurance is not re-run under the unified pipeline.
+- No matched-budget comparison against automatic outlier detectors.
+- Membership inference is scaffolded (`appendix_d/scripts/run_mia.py`, BNAF variant
+  works) but not swept.
+- No licence file yet — add one before making the repository public.

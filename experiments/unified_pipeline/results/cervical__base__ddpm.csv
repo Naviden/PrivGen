@@ -1,0 +1,29 @@
+index,min,max,mean,stddev,median,iqr,rounds,errors,durations,direction,dataset,arm,synth,secs
+sanity.data_mismatch.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6
+sanity.common_rows_proportion.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6
+sanity.nearest_syn_neighbor_distance.mean,0.5212698483867552,0.5212698483867552,0.5212698483867552,0.0,0.5212698483867552,0.0,1,0,0.02,minimize,cervical,base,ddpm,29.6
+sanity.close_values_probability.score,0.0011976047904191617,0.0011976047904191617,0.0011976047904191617,0.0,0.0011976047904191617,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.jensenshannon_dist.marginal,0.029006971754064192,0.029006971754064192,0.029006971754064192,0.0,0.029006971754064192,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6
+stats.chi_squared_test.marginal,0.39907551615198605,0.39907551615198605,0.39907551615198605,0.0,0.39907551615198605,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.inv_kl_divergence.marginal,0.7358717913061854,0.7358717913061854,0.7358717913061854,0.0,0.7358717913061854,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.ks_test.marginal,0.8035262807717897,0.8035262807717897,0.8035262807717897,0.0,0.8035262807717897,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.max_mean_discrepancy.joint,0.004316379046536773,0.004316379046536773,0.004316379046536773,0.0,0.004316379046536773,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6
+stats.wasserstein_dist.joint,2.4672561124211216,2.4672561124211216,2.4672561124211216,0.0,2.4672561124211216,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6
+stats.prdc.precision,0.10778443113772455,0.10778443113772455,0.10778443113772455,0.0,0.10778443113772455,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.prdc.recall,0.003592814371257485,0.003592814371257485,0.003592814371257485,0.0,0.003592814371257485,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.prdc.density,0.02155688622754491,0.02155688622754491,0.02155688622754491,0.0,0.02155688622754491,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.prdc.coverage,0.003592814371257485,0.003592814371257485,0.003592814371257485,0.0,0.003592814371257485,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.alpha_precision.delta_precision_alpha_OC,0.034171656686626806,0.034171656686626806,0.034171656686626806,0.0,0.034171656686626806,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.alpha_precision.delta_coverage_beta_OC,0.00023952095808388307,0.00023952095808388307,0.00023952095808388307,0.0,0.00023952095808388307,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.alpha_precision.authenticity_OC,0.9988023952095808,0.9988023952095808,0.9988023952095808,0.0,0.9988023952095808,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.alpha_precision.delta_precision_alpha_naive,0.0820758483033932,0.0820758483033932,0.0820758483033932,0.0,0.0820758483033932,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.alpha_precision.delta_coverage_beta_naive,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+stats.alpha_precision.authenticity_naive,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.delta-presence.score,114.4999994275,114.4999994275,114.4999994275,0.0,114.4999994275,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.k-anonymization.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.k-anonymization.syn,15.00000001,15.00000001,15.00000001,0.0,15.00000001,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.k-map.score,2.0,2.0,2.0,0.0,2.0,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.distinct l-diversity.gt,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.distinct l-diversity.syn,15.00000001,15.00000001,15.00000001,0.0,15.00000001,0.0,1,0,0.0,maximize,cervical,base,ddpm,29.6
+privacy.identifiability_score.score,0.0011976047904191617,0.0011976047904191617,0.0011976047904191617,0.0,0.0011976047904191617,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6
+privacy.identifiability_score.score_OC,0.003592814371257485,0.003592814371257485,0.003592814371257485,0.0,0.003592814371257485,0.0,1,0,0.0,minimize,cervical,base,ddpm,29.6

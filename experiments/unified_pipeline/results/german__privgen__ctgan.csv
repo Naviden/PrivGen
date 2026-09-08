@@ -1,0 +1,29 @@
+index,min,max,mean,stddev,median,iqr,rounds,errors,durations,direction,dataset,arm,synth,secs
+sanity.data_mismatch.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,german,privgen,ctgan,38.6
+sanity.common_rows_proportion.score,0.0,0.0,0.0,0.0,0.0,0.0,1,0,0.0,minimize,german,privgen,ctgan,38.6
+sanity.nearest_syn_neighbor_distance.mean,0.02693745819475506,0.02693745819475506,0.02693745819475506,0.0,0.02693745819475506,0.0,1,0,0.01,minimize,german,privgen,ctgan,38.6
+sanity.close_values_probability.score,0.953,0.953,0.953,0.0,0.953,0.0,1,0,0.01,maximize,german,privgen,ctgan,38.6
+stats.jensenshannon_dist.marginal,0.009846638301294891,0.009846638301294891,0.009846638301294891,0.0,0.009846638301294891,0.0,1,0,0.02,minimize,german,privgen,ctgan,38.6
+stats.chi_squared_test.marginal,0.7914230357403359,0.7914230357403359,0.7914230357403359,0.0,0.7914230357403359,0.0,1,0,0.01,maximize,german,privgen,ctgan,38.6
+stats.inv_kl_divergence.marginal,0.9380012331864598,0.9380012331864598,0.9380012331864598,0.0,0.9380012331864598,0.0,1,0,0.0,maximize,german,privgen,ctgan,38.6
+stats.ks_test.marginal,0.9395714285714286,0.9395714285714286,0.9395714285714286,0.0,0.9395714285714286,0.0,1,0,0.01,maximize,german,privgen,ctgan,38.6
+stats.max_mean_discrepancy.joint,0.0020000000040246934,0.0020000000040246934,0.0020000000040246934,0.0,0.0020000000040246934,0.0,1,0,0.01,minimize,german,privgen,ctgan,38.6
+stats.wasserstein_dist.joint,0.4558528714199568,0.4558528714199568,0.4558528714199568,0.0,0.4558528714199568,0.0,1,0,0.12,minimize,german,privgen,ctgan,38.6
+stats.prdc.precision,0.974,0.974,0.974,0.0,0.974,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.prdc.recall,0.907,0.907,0.907,0.0,0.907,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.prdc.density,0.9904000000000001,0.9904000000000001,0.9904000000000001,0.0,0.9904000000000001,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.prdc.coverage,0.841,0.841,0.841,0.0,0.841,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.alpha_precision.delta_precision_alpha_OC,0.9873333333333333,0.9873333333333333,0.9873333333333333,0.0,0.9873333333333333,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.alpha_precision.delta_coverage_beta_OC,0.4740000000000001,0.4740000000000001,0.4740000000000001,0.0,0.4740000000000001,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.alpha_precision.authenticity_OC,0.481,0.481,0.481,0.0,0.481,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.alpha_precision.delta_precision_alpha_naive,0.8547655172413793,0.8547655172413793,0.8547655172413793,0.0,0.8547655172413793,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.alpha_precision.delta_coverage_beta_naive,0.4828,0.4828,0.4828,0.0,0.4828,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+stats.alpha_precision.authenticity_naive,0.576,0.576,0.576,0.0,0.576,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+privacy.delta-presence.score,82.99999917000001,82.99999917000001,82.99999917000001,0.0,82.99999917000001,0.0,1,0,0.01,maximize,german,privgen,ctgan,38.6
+privacy.k-anonymization.gt,5.0,5.0,5.0,0.0,5.0,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+privacy.k-anonymization.syn,11.00000001,11.00000001,11.00000001,0.0,11.00000001,0.0,1,0,0.02,maximize,german,privgen,ctgan,38.6
+privacy.k-map.score,1.0,1.0,1.0,0.0,1.0,0.0,1,0,0.01,maximize,german,privgen,ctgan,38.6
+privacy.distinct l-diversity.gt,5.0,5.0,5.0,0.0,5.0,0.0,1,0,0.03,maximize,german,privgen,ctgan,38.6
+privacy.distinct l-diversity.syn,11.00000001,11.00000001,11.00000001,0.0,11.00000001,0.0,1,0,0.03,maximize,german,privgen,ctgan,38.6
+privacy.identifiability_score.score,0.421,0.421,0.421,0.0,0.421,0.0,1,0,0.03,minimize,german,privgen,ctgan,38.6
+privacy.identifiability_score.score_OC,0.469,0.469,0.469,0.0,0.469,0.0,1,0,0.03,minimize,german,privgen,ctgan,38.6
