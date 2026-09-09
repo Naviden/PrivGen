@@ -82,6 +82,9 @@ trains the nine synthesisers. Heavy — the original was run on an AWS `g6.4xlar
   predict this; a quasi-identifier statistic on the raw data succeeds.
 - Two metric directions were corrected against synthcity's implementations
   (`inv_kl_divergence` and `ks_test` are higher-is-better).
+- Identifiability Score is computed but not reported: it measures record-level
+  uniqueness, whereas the paper's claims concern group-based proxies. Values and
+  rationale in `experiments/unified_pipeline/METRICS_SCOPE.md`.
 - **Every cell is a single seed.** Two arms whose removal sets agree at Jaccard 0.97
   differ by 0.11 in improvement rate, so differences below ~0.1 should not be read as
   real.
